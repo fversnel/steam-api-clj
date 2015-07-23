@@ -23,7 +23,7 @@ And simply create the desired request by specifying the Steam interface, method 
 
 ```
 
-You can lookup a specific method very easily in requests map in [core](./src/steam_api_clj/core.clj) file.
+You can lookup a specific method very easily in the requests map in [core](./src/steam_api_clj/core.clj) file.
 Each API call has metadata associated with it that tells you what it is:
 
 ```clojure
@@ -51,5 +51,4 @@ This will generate a new core.clj file with the updated API.
 
 Copyright © 2015 Frank Versnel
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the Eclipse Public License version 1.0.

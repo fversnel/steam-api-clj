@@ -1,6 +1,6 @@
 # steam-api-clj
 
-Library that allows you to easily generate Steam Web API calls from clojure.
+Library that allows you to easily create Steam Web API calls from clojure.
 
 ## Design goals
 
@@ -23,8 +23,8 @@ And simply create the desired request by specifying the Steam interface, method 
 
 ```
 
-You can lookup a specific method very easily in the requests map in [core](./src/steam_api_clj/core.clj) file.
-Each API call has metadata associated with it that tells you what it is:
+You can lookup a specific method very easily in the requests map in the [core](./src/steam_api_clj/core.clj) file.
+Each API call also has metadata associated with it that tells you what it is:
 
 ```clojure
 (meta (get-in steam-api/requests ["ISteamNews" "GetNewsForAppV2"]))
@@ -51,4 +51,4 @@ This will generate a new core.clj file with the updated API.
 
 Copyright © 2015 Frank Versnel
 
-Distributed under the Eclipse Public License version 1.0.
+Distributed under the Eclipse Public License version 1.0

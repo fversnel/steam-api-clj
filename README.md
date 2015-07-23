@@ -1,6 +1,6 @@
 # steam-api-clj
 
-Library that allows you to easily call the Steam Web API from clojure.
+Library that allows you to easily generate Steam Web API calls from clojure.
 
 ## Design goals
 

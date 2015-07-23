@@ -27,7 +27,7 @@ You can lookup a specific method very easily in requests map in [core](./src/ste
 Each API call has metadata associated with it that tells you what it is:
 
 ```clojure
-(meta (get-in requests ["ISteamNews" "GetNewsForAppV2"]))
+(meta (get-in steam-api/requests ["ISteamNews" "GetNewsForAppV2"]))
 => {:url "https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002",
     :http-method :get,
     :parameters [:appid :maxlength :enddate :count :feeds :format],

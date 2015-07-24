@@ -18,10 +18,12 @@ Library that allows you to easily create Steam Web API calls from clojure.
 And simply create the desired request by specifying the Steam interface, method name and parameters
 
 ```clojure
-(steam-api/request "ISteamNews" "GetNewsForAppV2" {:appid 1234 :maxlength 50 :count 5 :format "json"})
+(steam-api/request "ISteamNews" "GetNewsForAppV2"
+                   {:appid 1234 :maxlength 50 :count 5 :format "json"})
 => {:method :get,
     :url "https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002",
-    :headers {"ContentType" "application/x-www-form-urlencoded", "Accept" "application/json"},
+    :headers {"ContentType" "application/x-www-form-urlencoded",
+              "Accept" "application/json"},
     :query-params {:appid 1234, :maxlength 50, :count 5, :format "json"}}
 
 ```

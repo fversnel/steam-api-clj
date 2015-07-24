@@ -47,18 +47,19 @@
 
 (defn generate-api []
   (let [api-list (json-parser/parse-stream (io/reader steam-api-list-file))
-        api-requests (generate-requests 
+        api-requests (generate-requests
                        {:secured-url "https://api.steampowered.com"
                         :unsecured-url "https://api.steampowered.com"}
                        api-list)
-        api-code `((~'ns ~'steam-api-clj.core
-                      (:require [~'steam-api-clj.api :refer [~'steam-request]]))
+        api-code `(~'(ns steam-api-clj.core
+                      (:require [steam-api-clj.api :refer [steam-request]]))
 
-                     (~'declare ~'requests)
+                     ~'(declare requests)
 
-                     (~'defn ~'request [~'interface ~'method ~'parameters]
-                       ((~'get-in ~'requests [~'interface ~'method]) ~'parameters))
+                     ~'(defn request [interface method parameters]
+                         ((get-in requests [interface method]) parameters))
 
-                     (def ~'requests ~api-requests))
-        code-as-string (apply str (map #(with-out-str (pprint %)) api-code))]
+                     (~'def ~'requests ~api-requests))
+        code-as-string (apply str (map #(str (.replace (with-out-str (pprint %)) "\\n" "\n") "\n")
+                                       api-code))]
     (spit "src/steam_api_clj/core.clj" code-as-string)))

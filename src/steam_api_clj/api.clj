@@ -1,4 +1,5 @@
-(ns steam-api-clj.api)
+(ns steam-api-clj.api
+  (:require [steam-api-clj.util :as util]))
 
 (def data-format-headers
   {"json" "application/json"
@@ -13,9 +14,6 @@
        (flatten)
        (apply hash-map)))
 
-(defn to-param-array [array-name values]
-  {array-name (clojure.string/join "," values)})
-
 (defn to-parameter-definition [parameter-spec]
   (if (keyword? parameter-spec)
     {:type :normal :name parameter-spec}
@@ -27,13 +25,12 @@
             (let [value (get parameters name)]
               (case type
                 :normal
-                {name value}
+                {name (cond
+                        (coll? value) (util/comma-separated-string value)
+                        :else value)}
 
                 :indexed-array
-                (to-indexed-param-array name value)
-
-                :array
-                (to-param-array name value))))]
+                (to-indexed-param-array name value))))]
     (->> parameters-spec
          (map to-parameter-definition)
          (filter #(contains? parameters (:name %)))
@@ -47,7 +44,7 @@
   (let [parameter-names# (set (extract-parameter-names parameters-spec))]
     (with-meta `(fn
                    ~(if-not (empty? parameter-names#)
-                      [`{:keys ~(->> parameter-names# (map (comp symbol name)) vec) :as ~'parameters}]
+                      [{:keys (->> parameter-names# (map (comp symbol name)) vec) :as 'parameters}]
                       [])
 
                    ~(merge
@@ -56,11 +53,11 @@
                       (case http-method
                         :get `{:query-params (make-request-params ~(vec parameters-spec) ~'parameters)
                                :headers      (merge
-                                               {"ContentType" "application/x-www-form-urlencoded"}
+                                               {"ContentType" "application/x-www-form-urlencoded; charset=utf-8"}
                                                (when (contains? ~'parameters :format)
                                                  {"Accept" (get data-format-headers ~'format)}))}
                         :post `{:form-params (make-request-params ~(vec parameters-spec) ~'parameters)
-                                :headers     {"ContentType" "application/x-www-form-urlencoded"}}
+                                :headers     {"ContentType" "application/x-www-form-urlencoded; charset=utf-8"}}
                         {})))
                {:url url
                 :http-method http-method

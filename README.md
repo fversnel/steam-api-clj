@@ -20,9 +20,6 @@ With Leiningen/Boot:
 ## Usage
 
 ```clojure
-```
-
-```clojure
 ;; In your ns statement:
 (ns my.ns
   (:require [steam-api-clj.core :as steam-api]))

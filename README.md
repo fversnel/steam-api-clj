@@ -7,7 +7,20 @@ Library that allows you to easily create Steam Web API calls from clojure.
 - Not bound to any specific http library, I leave that up to the user
 - API can be generated from Steam's own [API specification](http://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001/?format=json)
 
+## Installation
+
+steam-api-clj is available as a Maven artifact from Clojars.
+
+With Leiningen/Boot:
+
+```clojure
+[steam-api-clj "0.0.1"]
+```
+
 ## Usage
+
+```clojure
+```
 
 ```clojure
 ;; In your ns statement:
@@ -25,7 +38,6 @@ And simply create the desired request by specifying the Steam interface, method 
     :headers {"ContentType" "application/x-www-form-urlencoded",
               "Accept" "application/json"},
     :query-params {:appid 1234, :maxlength 50, :count 5, :format "json"}}
-
 ```
 
 You can lookup a specific method very easily in the requests map in the [core](./src/steam_api_clj/core.clj) file.

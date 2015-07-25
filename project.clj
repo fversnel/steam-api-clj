@@ -1,4 +1,4 @@
-(defproject steam-api-clj "0.1.0-SNAPSHOT"
+(defproject steam-api-clj "0.1.0"
   :description "Steam Web API interface for Clojure"
   :url "https://github.com/fversnel/steam-api-clj"
   :license {:name "Eclipse Public License"

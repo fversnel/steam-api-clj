@@ -15,6 +15,11 @@
                    (for [method (get interface "methods")
                          :let [method-name (get method "name")
                                version (get method "version")
+                               parameters (conj (vec (get method "parameters"))
+                                                {"name" "format"
+                                                 "type" "string"
+                                                 "optional" true
+                                                 "description" "The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"})
                                doc-string (let [general-description (get method "description")
                                                 parameter-descriptions
                                                   (map (fn [parameter]
@@ -25,25 +30,24 @@
                                                               "]"
                                                               (when (get parameter "description")
                                                                 (str " - " (get parameter "description")))))
-                                                       (get method "parameters"))]
+                                                       parameters)]
                                             (str (when general-description (str general-description "\n\n"))
                                                  (clojure.string/join "\n" parameter-descriptions)))
                                http-method (case (get method "httpmethod")
                                              "POST" :post
                                              "GET" :get)
-                               parameters (map (fn [parameter]
+                               parameters-spec (map (fn [parameter]
                                                  (let [parameter-name (get parameter "name")]
                                                    (if (.contains parameter-name "[0]")
                                                      [:indexed-array (keyword (.replace parameter-name "[0]" ""))]
                                                      (keyword parameter-name))))
-                                               (get method "parameters"))
-                               parameters (conj (vec parameters) :format)
-                               api-url (if (contains? (set parameters) :key)
+                                               parameters)
+                               api-url (if (contains? (set parameters-spec) :key)
                                          secured-url
                                          unsecured-url)
                                url (util/url api-url interface-name method-name (format "v%04d" version))]]
                      {(str method-name "V" version)
-                      (list 'steam-request url doc-string http-method (vec parameters))}))})))
+                      (list 'steam-request url doc-string http-method (vec parameters-spec))}))})))
 
 (defn generate-api []
   (let [api-list (json-parser/parse-stream (io/reader steam-api-list-file))

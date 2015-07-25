@@ -16,21 +16,24 @@
    (steam-request
     "https://api.steampowered.com/ITFPromos_620/GetItemID/v0001"
     "steamid [uint64] - The Steam ID to fetch items for
-PromoID [uint32] - The promo ID to grant an item for"
+PromoID [uint32] - The promo ID to grant an item for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :PromoID :format]),
    "GrantItemV1"
    (steam-request
     "https://api.steampowered.com/ITFPromos_620/GrantItem/v0001"
     "steamid [uint64] - The Steam ID to fetch items for
-PromoID [uint32] - The promo ID to grant an item for"
+PromoID [uint32] - The promo ID to grant an item for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :PromoID :format])},
   "IPortal2Leaderboards_620"
   {"GetBucketizedDataV1"
    (steam-request
     "https://api.steampowered.com/IPortal2Leaderboards_620/GetBucketizedData/v0001"
-    "leaderboardName [string] - The leaderboard name to fetch data for."
+    "leaderboardName [string] - The leaderboard name to fetch data for.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:leaderboardName :format])},
   "ISteamRemoteStorage"
@@ -38,7 +41,8 @@ PromoID [uint32] - The promo ID to grant an item for"
    (steam-request
     "https://api.steampowered.com/ISteamRemoteStorage/EnumerateUserPublishedFiles/v0001"
     "steamid [uint64] - SteamID of user
-appid [uint32] - appID of product"
+appid [uint32] - appID of product
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :appid :format]),
    "EnumerateUserSubscribedFilesV1"
@@ -46,21 +50,24 @@ appid [uint32] - appID of product"
     "https://api.steampowered.com/ISteamRemoteStorage/EnumerateUserSubscribedFiles/v0001"
     "steamid [uint64] - SteamID of user
 appid [uint32] - appID of product
-listtype [uint32, optional] - EUCMListType"
+listtype [uint32, optional] - EUCMListType
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :appid :listtype :format]),
    "GetCollectionDetailsV1"
    (steam-request
     "https://api.steampowered.com/ISteamRemoteStorage/GetCollectionDetails/v0001"
     "collectioncount [uint32] - Number of collections being requested
-publishedfileids[0] [uint64] - collection ids to get the details for"
+publishedfileids[0] [uint64] - collection ids to get the details for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:collectioncount [:indexed-array :publishedfileids] :format]),
    "GetPublishedFileDetailsV1"
    (steam-request
     "https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/v0001"
     "itemcount [uint32] - Number of items being requested
-publishedfileids[0] [uint64] - published file id to look up"
+publishedfileids[0] [uint64] - published file id to look up
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:itemcount [:indexed-array :publishedfileids] :format]),
    "GetUGCFileDetailsV1"
@@ -68,7 +75,8 @@ publishedfileids[0] [uint64] - published file id to look up"
     "https://api.steampowered.com/ISteamRemoteStorage/GetUGCFileDetails/v0001"
     "steamid [uint64, optional] - If specified, only returns details if the file is owned by the SteamID specified
 ugcid [uint64] - ID of UGC file to get info for
-appid [uint32] - appID of product"
+appid [uint32] - appID of product
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :ugcid :appid :format]),
    "SetUGCUsedByGCV1"
@@ -77,7 +85,8 @@ appid [uint32] - appID of product"
     "steamid [uint64] - SteamID of user
 ugcid [uint64] - ID of UGC file whose bits are being fiddled with
 appid [uint32] - appID of product to change updating state for
-used [bool] - New state of flag"
+used [bool] - New state of flag
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :ugcid :appid :used :format]),
    "SubscribePublishedFileV1"
@@ -85,7 +94,8 @@ used [bool] - New state of flag"
     "https://api.steampowered.com/ISteamRemoteStorage/SubscribePublishedFile/v0001"
     "steamid [uint64] - SteamID of user
 appid [uint32] - appID of product
-publishedfileid [uint64] - published file id to subscribe to"
+publishedfileid [uint64] - published file id to subscribe to
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :appid :publishedfileid :format]),
    "UnsubscribePublishedFileV1"
@@ -93,32 +103,36 @@ publishedfileid [uint64] - published file id to subscribe to"
     "https://api.steampowered.com/ISteamRemoteStorage/UnsubscribePublishedFile/v0001"
     "steamid [uint64] - SteamID of user
 appid [uint32] - appID of product
-publishedfileid [uint64] - published file id to unsubscribe from"
+publishedfileid [uint64] - published file id to unsubscribe from
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :appid :publishedfileid :format])},
   "IEconItems_730"
   {"GetPlayerItemsV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_730/GetPlayerItems/v0001"
-    "steamid [uint64] - The Steam ID to fetch items for"
+    "steamid [uint64] - The Steam ID to fetch items for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :format]),
    "GetSchemaV2"
    (steam-request
     "https://api.steampowered.com/IEconItems_730/GetSchema/v0002"
-    "language [string, optional] - The language to return the names in. Defaults to returning string keys."
+    "language [string, optional] - The language to return the names in. Defaults to returning string keys.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :format]),
    "GetSchemaURLV2"
    (steam-request
     "https://api.steampowered.com/IEconItems_730/GetSchemaURL/v0002"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format]),
    "GetStoreMetaDataV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_730/GetStoreMetaData/v0001"
-    "language [string, optional] - The language to results in."
+    "language [string, optional] - The language to results in.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :format])},
   "ISteamVideo"
@@ -128,7 +142,8 @@ publishedfileid [uint64] - published file id to unsubscribe from"
     "steamid [uint64] - SteamID of user
 appid [uint32] - appID of the video
 videoid [string] - ID of the video on the provider's site
-accountname [string] - Account name of the video's owner on the provider's site"
+accountname [string] - Account name of the video's owner on the provider's site
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :appid :videoid :accountname :format])},
   "IEconService"
@@ -140,7 +155,8 @@ accountname [string] - Account name of the video's owner on the provider's site"
 key [string] - Access key
 steamid [uint64] - User to clear cache for.
 appid [uint32] - App to clear cache for.
-contextid [uint64] - Context to clear cache for."
+contextid [uint64] - Context to clear cache for.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :steamid :appid :contextid :format]),
    "FlushAssetAppearanceCacheV1"
@@ -149,7 +165,8 @@ contextid [uint64] - Context to clear cache for."
     "Flushes the display cache for assets.  This will result in calls to GetAssetClassInfo for each asset class the next time it is displayed.
 
 key [string] - Access key
-appid [uint32]"
+appid [uint32]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :appid :format]),
    "GetTradeOffersV1"
@@ -164,7 +181,8 @@ get_descriptions [bool] - If set, the item display data for the items included i
 language [string] - The language to use when loading item display data.
 active_only [bool] - Indicates we should only return offers which are still active, or offers that have changed in state since the time_historical_cutoff
 historical_only [bool] - Indicates we should only return offers which are not active.
-time_historical_cutoff [uint32] - When active_only is set, offers updated since this time will also be returned"
+time_historical_cutoff [uint32] - When active_only is set, offers updated since this time will also be returned
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key
      :get_sent_offers
@@ -182,7 +200,8 @@ time_historical_cutoff [uint32] - When active_only is set, offers updated since 
 
 key [string] - Access key
 tradeofferid [uint64]
-language [string]"
+language [string]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :tradeofferid :language :format]),
    "GetTradeOffersSummaryV1"
@@ -191,7 +210,8 @@ language [string]"
     "Get counts of pending and new trade offers
 
 key [string] - Access key
-time_last_visit [uint32] - The time the user last visited.  If not passed, will use the time the user last visited the trade offer page."
+time_last_visit [uint32] - The time the user last visited.  If not passed, will use the time the user last visited the trade offer page.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :time_last_visit :format]),
    "DeclineTradeOfferV1"
@@ -200,7 +220,8 @@ time_last_visit [uint32] - The time the user last visited.  If not passed, will 
     "Decline a trade offer someone sent to us
 
 key [string] - Access key
-tradeofferid [uint64]"
+tradeofferid [uint64]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :tradeofferid :format]),
    "CancelTradeOfferV1"
@@ -209,14 +230,16 @@ tradeofferid [uint64]"
     "Cancel a trade offer we sent
 
 key [string] - Access key
-tradeofferid [uint64]"
+tradeofferid [uint64]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :tradeofferid :format])},
   "IEconItems_221540"
   {"GetPlayerItemsV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_221540/GetPlayerItems/v0001"
-    "steamid [uint64] - The Steam ID to fetch items for"
+    "steamid [uint64] - The Steam ID to fetch items for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :format])},
   "ITFPromos_841"
@@ -224,14 +247,16 @@ tradeofferid [uint64]"
    (steam-request
     "https://api.steampowered.com/ITFPromos_841/GetItemID/v0001"
     "steamid [uint64] - The Steam ID to fetch items for
-PromoID [uint32] - The promo ID to grant an item for"
+PromoID [uint32] - The promo ID to grant an item for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :PromoID :format]),
    "GrantItemV1"
    (steam-request
     "https://api.steampowered.com/ITFPromos_841/GrantItem/v0001"
     "steamid [uint64] - The Steam ID to fetch items for
-PromoID [uint32] - The promo ID to grant an item for"
+PromoID [uint32] - The promo ID to grant an item for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :PromoID :format])},
   "ISteamLeaderboards"
@@ -239,7 +264,8 @@ PromoID [uint32] - The promo ID to grant an item for"
    (steam-request
     "https://api.steampowered.com/ISteamLeaderboards/DeleteLeaderboard/v0001"
     "appid [uint32] - appid of game
-name [string] - name of the leaderboard to delete"
+name [string] - name of the leaderboard to delete
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:appid :name :format]),
    "FindOrCreateLeaderboardV1"
@@ -251,7 +277,8 @@ sortmethod [string, optional] - sort method to use for this leaderboard (default
 displaytype [string, optional] - display type for this leaderboard (defaults to Numeric)
 createifnotfound [bool, optional] - if this is true the leaderboard will be created if it doesn't exist. Defaults to true.
 onlytrustedwrites [bool, optional] - if this is true the leaderboard scores cannot be set by clients, and can only be set by publisher via SetLeaderboardScore WebAPI. Defaults to false.
-onlyfriendsreads [bool, optional] - if this is true the leaderboard scores can only be read for friends by clients, scores can always be read by publisher. Defaults to false."
+onlyfriendsreads [bool, optional] - if this is true the leaderboard scores can only be read for friends by clients, scores can always be read by publisher. Defaults to false.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:appid
      :name
@@ -270,7 +297,8 @@ sortmethod [string, optional] - sort method to use for this leaderboard (default
 displaytype [string, optional] - display type for this leaderboard (defaults to Numeric)
 createifnotfound [bool, optional] - if this is true the leaderboard will be created if it doesn't exist. Defaults to true.
 onlytrustedwrites [bool, optional] - if this is true the leaderboard scores cannot be set by clients, and can only be set by publisher via SetLeaderboardScore WebAPI. Defaults to false.
-onlyfriendsreads [bool, optional] - if this is true the leaderboard scores can only be read for friends by clients, scores can always be read by publisher. Defaults to false."
+onlyfriendsreads [bool, optional] - if this is true the leaderboard scores can only be read for friends by clients, scores can always be read by publisher. Defaults to false.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:appid
      :name
@@ -289,7 +317,8 @@ rangestart [int32] - range start or 0
 rangeend [int32] - range end or max LB entries
 steamid [uint64, optional] - SteamID used for friend & around user requests
 leaderboardid [int32] - ID of the leaderboard to view
-datarequest [uint32] - type of request: RequestGlobal, RequestAroundUser, RequestFriends"
+datarequest [uint32] - type of request: RequestGlobal, RequestAroundUser, RequestFriends
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key
      :appid
@@ -303,21 +332,24 @@ datarequest [uint32] - type of request: RequestGlobal, RequestAroundUser, Reques
    (steam-request
     "https://api.steampowered.com/ISteamLeaderboards/GetLeaderboardsForGame/v0001"
     "key [string] - access key
-appid [uint32] - appid of game"
+appid [uint32] - appid of game
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :appid :format]),
    "GetLeaderboardsForGameV2"
    (steam-request
     "https://api.steampowered.com/ISteamLeaderboards/GetLeaderboardsForGame/v0002"
     "key [string] - access key
-appid [uint32] - appid of game"
+appid [uint32] - appid of game
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :appid :format]),
    "ResetLeaderboardV1"
    (steam-request
     "https://api.steampowered.com/ISteamLeaderboards/ResetLeaderboard/v0001"
     "appid [uint32] - appid of game
-leaderboardid [uint32] - numeric ID of the target leaderboard. Can be retrieved from GetLeaderboardsForGame"
+leaderboardid [uint32] - numeric ID of the target leaderboard. Can be retrieved from GetLeaderboardsForGame
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:appid :leaderboardid :format]),
    "SetLeaderboardScoreV1"
@@ -328,7 +360,8 @@ leaderboardid [uint32] - numeric ID of the target leaderboard. Can be retrieved 
 steamid [uint64] - steamID to set the score for
 score [int32] - the score to set for this user
 scoremethod [string] - update method to use. Can be \"KeepBest\" or \"ForceUpdate\"
-details [rawbinary, optional] - game-specific details for how the score was earned. Up to 256 bytes."
+details [rawbinary, optional] - game-specific details for how the score was earned. Up to 256 bytes.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:appid
      :leaderboardid
@@ -345,7 +378,8 @@ details [rawbinary, optional] - game-specific details for how the score was earn
 
 steamid [uint64]
 ticket [string]
-play_sessions [{message}]"
+play_sessions [{message}]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :ticket :play_sessions :format]),
    "GetRecentlyPlayedGamesV1"
@@ -355,7 +389,8 @@ play_sessions [{message}]"
 
 key [string] - Access key
 steamid [uint64] - The player we're asking about
-count [uint32] - The number of games to return (0/unset: all)"
+count [uint32] - The number of games to return (0/unset: all)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :count :format]),
    "GetOwnedGamesV1"
@@ -367,7 +402,8 @@ key [string] - Access key
 steamid [uint64] - The player we're asking about
 include_appinfo [bool] - true if we want additional details (name, icon) about each game
 include_played_free_games [bool] - Free games are excluded by default.  If this is set, free games the user has played will be returned.
-appids_filter [uint32] - if set, restricts result set to the passed in apps"
+appids_filter [uint32] - if set, restricts result set to the passed in apps
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key
      :steamid
@@ -381,7 +417,8 @@ appids_filter [uint32] - if set, restricts result set to the passed in apps"
     "Returns the Steam Level of a user
 
 key [string] - Access key
-steamid [uint64] - The player we're asking about"
+steamid [uint64] - The player we're asking about
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :format]),
    "GetBadgesV1"
@@ -390,7 +427,8 @@ steamid [uint64] - The player we're asking about"
     "Gets badges that are owned by a specific user
 
 key [string] - Access key
-steamid [uint64] - The player we're asking about"
+steamid [uint64] - The player we're asking about
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :format]),
    "GetCommunityBadgeProgressV1"
@@ -400,7 +438,8 @@ steamid [uint64] - The player we're asking about"
 
 key [string] - Access key
 steamid [uint64] - The player we're asking about
-badgeid [int32] - The badge we're asking about"
+badgeid [int32] - The badge we're asking about
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :badgeid :format]),
    "IsPlayingSharedGameV1"
@@ -410,7 +449,8 @@ badgeid [int32] - The badge we're asking about"
 
 key [string] - Access key
 steamid [uint64] - The player we're asking about
-appid_playing [uint32] - The game player is currently playing"
+appid_playing [uint32] - The game player is currently playing
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :appid_playing :format])},
   "ISteamCommunity"
@@ -424,7 +464,8 @@ appid [uint32] - AppID to check for ownership
 abuseType [uint32] - Abuse type code (see EAbuseReportType enum)
 contentType [uint32] - Content type code (see ECommunityContentType enum)
 description [string] - Narrative from user
-gid [uint64, optional] - GID of related record (depends on content type)"
+gid [uint64, optional] - GID of related record (depends on content type)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key
      :steamidActor
@@ -445,7 +486,8 @@ key [string] - Access key
 appid [uint32]
 steamid [uint64]
 broadcast_id [uint64]
-frame_data [string]"
+frame_data [string]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :appid :steamid :broadcast_id :frame_data :format])},
   "IWorkshopService"
@@ -459,7 +501,8 @@ appid [uint32]
 gameitemid [uint32]
 associated_workshop_files [{message}]
 partner_accounts [{message}]
-validate_only [bool, optional] - Only validates the rules and does not persist them."
+validate_only [bool, optional] - Only validates the rules and does not persist them.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key
      :appid
@@ -475,7 +518,8 @@ validate_only [bool, optional] - Only validates the rules and does not persist t
 
 key [string] - Access key
 appid [uint32]
-gameitemid [uint32]"
+gameitemid [uint32]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :appid :gameitemid :format]),
    "GetItemDailyRevenueV1"
@@ -487,7 +531,8 @@ key [string] - Access key
 appid [uint32]
 item_id [uint32]
 date_start [uint32]
-date_end [uint32]"
+date_end [uint32]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :appid :item_id :date_start :date_end :format]),
    "PopulateItemDescriptionsV1"
@@ -497,7 +542,8 @@ date_end [uint32]"
 
 key [string] - Access key
 appid [uint32]
-languages [{message}]"
+languages [{message}]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :appid :languages :format])},
   "ISteamMicroTxnSandbox"
@@ -507,7 +553,8 @@ languages [{message}]"
     "steamid [uint64] - SteamID of user with the agreement
 agreementid [uint64] - ID of agreement
 appid [uint32] - AppID of game
-nextprocessdate [string] - Date for next process"
+nextprocessdate [string] - Date for next process
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :agreementid :appid :nextprocessdate :format]),
    "QueryTxnV2"
@@ -515,7 +562,8 @@ nextprocessdate [string] - Date for next process"
     "https://api.steampowered.com/ISteamMicroTxnSandbox/QueryTxn/v0002"
     "appid [uint32] - AppID of game this transaction is for
 orderid [uint64, optional] - 3rd party ID for transaction
-transid [uint64, optional] - Steam transaction ID"
+transid [uint64, optional] - Steam transaction ID
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :orderid :transid :format]),
    "CancelAgreementV1"
@@ -523,7 +571,8 @@ transid [uint64, optional] - Steam transaction ID"
     "https://api.steampowered.com/ISteamMicroTxnSandbox/CancelAgreement/v0001"
     "steamid [uint64] - SteamID of user with the agreement
 agreementid [uint64] - ID of agreement
-appid [uint32] - AppID of game"
+appid [uint32] - AppID of game
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :agreementid :appid :format]),
    "InitTxnV1"
@@ -545,7 +594,8 @@ startdate[0] [string, optional] - Optional start date for recurring billing
 enddate[0] [string, optional] - Optional start date for recurring billing
 period[0] [string, optional] - Optional period for recurring billing
 frequency[0] [uint32, optional] - Optional frequency for recurring billing
-recurringamt[0] [string, optional] - Optional recurring billing amount"
+recurringamt[0] [string, optional] - Optional recurring billing amount
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid
      :steamid
@@ -571,7 +621,8 @@ recurringamt[0] [string, optional] - Optional recurring billing amount"
     "appid [uint32] - AppID of game this transaction is for
 type [string] - Report type (GAMESALES, STEAMSTORE, SETTLEMENT)
 time [string] - Beginning time to start report from (RFC 3339 UTC format)
-maxresults [uint32, optional] - Max number of results to return (up to 1000)"
+maxresults [uint32, optional] - Max number of results to return (up to 1000)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :type :time :maxresults :format]),
    "GetReportV1"
@@ -580,7 +631,8 @@ maxresults [uint32, optional] - Max number of results to return (up to 1000)"
     "appid [uint32] - AppID of game this transaction is for
 type [string] - Report type (GAMESALES, STEAMSTORE, SETTLEMENT)
 time [string] - Beginning time to start report from (RFC 3339 UTC format)
-maxresults [uint32, optional] - Max number of results to return (up to 1000)"
+maxresults [uint32, optional] - Max number of results to return (up to 1000)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :type :time :maxresults :format]),
    "GetReportV2"
@@ -589,14 +641,16 @@ maxresults [uint32, optional] - Max number of results to return (up to 1000)"
     "appid [uint32] - AppID of game this transaction is for
 type [string] - Report type (GAMESALES, STEAMSTORE, SETTLEMENT)
 time [string] - Beginning time to start report from (RFC 3339 UTC format)
-maxresults [uint32, optional] - Max number of results to return (up to 1000)"
+maxresults [uint32, optional] - Max number of results to return (up to 1000)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :type :time :maxresults :format]),
    "FinalizeTxnV2"
    (steam-request
     "https://api.steampowered.com/ISteamMicroTxnSandbox/FinalizeTxn/v0002"
     "orderid [uint64] - 3rd party ID for transaction
-appid [uint32] - AppID of game this transaction is for"
+appid [uint32] - AppID of game this transaction is for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid :appid :format]),
    "InitTxnV2"
@@ -618,7 +672,8 @@ startdate[0] [string, optional] - Optional start date for recurring billing
 enddate[0] [string, optional] - Optional end date for recurring billing
 period[0] [string, optional] - Optional period for recurring billing
 frequency[0] [uint32, optional] - Optional frequency for recurring billing
-recurringamt[0] [string, optional] - Optional recurring billing amount"
+recurringamt[0] [string, optional] - Optional recurring billing amount
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid
      :steamid
@@ -642,7 +697,8 @@ recurringamt[0] [string, optional] - Optional recurring billing amount"
    (steam-request
     "https://api.steampowered.com/ISteamMicroTxnSandbox/GetUserInfo/v0001"
     "steamid [uint64, optional] - SteamID of user making purchase
-ipaddress [string, optional] - ip address of user in string format (xxx.xxx.xxx.xxx). Only required if usersession=web"
+ipaddress [string, optional] - ip address of user in string format (xxx.xxx.xxx.xxx). Only required if usersession=web
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :ipaddress :format]),
    "InitTxnV3"
@@ -664,7 +720,8 @@ startdate[0] [string, optional] - Optional start date for recurring billing
 enddate[0] [string, optional] - Optional end date for recurring billing
 period[0] [string, optional] - Optional period for recurring billing
 frequency[0] [uint32, optional] - Optional frequency for recurring billing
-recurringamt[0] [string, optional] - Optional recurring billing amount"
+recurringamt[0] [string, optional] - Optional recurring billing amount
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid
      :steamid
@@ -688,21 +745,24 @@ recurringamt[0] [string, optional] - Optional recurring billing amount"
    (steam-request
     "https://api.steampowered.com/ISteamMicroTxnSandbox/GetUserInfo/v0002"
     "steamid [uint64, optional] - SteamID of user making purchase
-ipaddress [string, optional] - ip address of user in string format (xxx.xxx.xxx.xxx). Only required if usersession=web"
+ipaddress [string, optional] - ip address of user in string format (xxx.xxx.xxx.xxx). Only required if usersession=web
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :ipaddress :format]),
    "FinalizeTxnV1"
    (steam-request
     "https://api.steampowered.com/ISteamMicroTxnSandbox/FinalizeTxn/v0001"
     "orderid [uint64] - 3rd party ID for transaction
-appid [uint32] - AppID of game this transaction is for"
+appid [uint32] - AppID of game this transaction is for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid :appid :format]),
    "RefundTxnV2"
    (steam-request
     "https://api.steampowered.com/ISteamMicroTxnSandbox/RefundTxn/v0002"
     "orderid [uint64] - 3rd party ID for transaction
-appid [uint32] - AppID of game this transaction is for"
+appid [uint32] - AppID of game this transaction is for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid :appid :format]),
    "ProcessAgreementV1"
@@ -712,14 +772,16 @@ appid [uint32] - AppID of game this transaction is for"
 agreementid [uint64] - ID of agreement
 appid [uint32] - AppID of game
 amount [int32] - Total cost (in cents) to charge
-currency [string] - ISO 4217 currency code"
+currency [string] - ISO 4217 currency code
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :agreementid :appid :amount :currency :format]),
    "GetUserAgreementInfoV1"
    (steam-request
     "https://api.steampowered.com/ISteamMicroTxnSandbox/GetUserAgreementInfo/v0001"
     "steamid [uint64] - SteamID of user making purchase
-appid [uint32] - AppID of game"
+appid [uint32] - AppID of game
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :appid :format]),
    "QueryTxnV1"
@@ -727,39 +789,44 @@ appid [uint32] - AppID of game"
     "https://api.steampowered.com/ISteamMicroTxnSandbox/QueryTxn/v0001"
     "appid [uint32] - AppID of game this transaction is for
 orderid [uint64, optional] - 3rd party ID for transaction
-transid [uint64, optional] - Steam transaction ID"
+transid [uint64, optional] - Steam transaction ID
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :orderid :transid :format]),
    "RefundTxnV1"
    (steam-request
     "https://api.steampowered.com/ISteamMicroTxnSandbox/RefundTxn/v0001"
     "orderid [uint64] - 3rd party ID for transaction
-appid [uint32] - AppID of game this transaction is for"
+appid [uint32] - AppID of game this transaction is for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid :appid :format])},
   "IEconItems_570"
   {"GetPlayerItemsV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_570/GetPlayerItems/v0001"
-    "steamid [uint64] - The Steam ID to fetch items for"
+    "steamid [uint64] - The Steam ID to fetch items for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :format]),
    "GetSchemaV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_570/GetSchema/v0001"
-    "language [string, optional] - The language to return the names in. Defaults to returning string keys."
+    "language [string, optional] - The language to return the names in. Defaults to returning string keys.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :format]),
    "GetSchemaURLV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_570/GetSchemaURL/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format]),
    "GetStoreMetaDataV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_570/GetStoreMetaData/v0001"
-    "language [string, optional] - The language to results in."
+    "language [string, optional] - The language to results in.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :format])},
   "ISteamPublishedItemSearch"
@@ -775,7 +842,8 @@ usertagcount [uint32] - Number of User specific tags requested
 hasappadminaccess [bool, optional] - Whether the user making the request is an admin for the app and can see private files
 fileType [uint32, optional] - EPublishedFileInfoMatchingFileType, defaults to k_PFI_MatchingFileType_Items
 tag[0] [string, optional] - Tag to filter result set
-usertag[0] [string, optional] - A user specific tag"
+usertag[0] [string, optional] - A user specific tag
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid
      :appid
@@ -801,7 +869,8 @@ hasappadminaccess [bool, optional] - Whether the user making the request is an a
 fileType [uint32, optional] - EPublishedFileInfoMatchingFileType, defaults to k_PFI_MatchingFileType_Items
 days [uint32, optional] - [1,7] number of days for the trend period, including today
 tag[0] [string, optional] - Tag to filter result set
-usertag[0] [string, optional] - A user specific tag"
+usertag[0] [string, optional] - A user specific tag
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid
      :appid
@@ -827,7 +896,8 @@ usertagcount [uint32] - Number of User specific tags requested
 hasappadminaccess [bool, optional] - Whether the user making the request is an admin for the app and can see private files
 fileType [uint32, optional] - EPublishedFileInfoMatchingFileType, defaults to k_PFI_MatchingFileType_Items
 tag[0] [string, optional] - Tag to filter result set
-usertag[0] [string, optional] - A user specific tag"
+usertag[0] [string, optional] - A user specific tag
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid
      :appid
@@ -850,7 +920,8 @@ usertagcount [uint32] - Number of User specific tags requested
 hasappadminaccess [bool, optional] - Whether the user making the request is an admin for the app and can see private files
 fileType [uint32, optional] - EPublishedFileInfoMatchingFileType, defaults to k_PFI_MatchingFileType_Items
 tag[0] [string, optional] - Tag to filter result set
-usertag[0] [string, optional] - A user specific tag"
+usertag[0] [string, optional] - A user specific tag
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid
      :appid
@@ -865,13 +936,13 @@ usertag[0] [string, optional] - A user specific tag"
   {"PaymentOutNotificationV1"
    (steam-request
     "https://api.steampowered.com/ISteamEnvoy/PaymentOutNotification/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:format]),
    "PaymentOutReversalNotificationV1"
    (steam-request
     "https://api.steampowered.com/ISteamEnvoy/PaymentOutReversalNotification/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:format])},
   "ITFPromos_730"
@@ -879,27 +950,29 @@ usertag[0] [string, optional] - A user specific tag"
    (steam-request
     "https://api.steampowered.com/ITFPromos_730/GetItemID/v0001"
     "steamid [uint64] - The Steam ID to fetch items for
-PromoID [uint32] - The promo ID to grant an item for"
+PromoID [uint32] - The promo ID to grant an item for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :PromoID :format]),
    "GrantItemV1"
    (steam-request
     "https://api.steampowered.com/ITFPromos_730/GrantItem/v0001"
     "steamid [uint64] - The Steam ID to fetch items for
-PromoID [uint32] - The promo ID to grant an item for"
+PromoID [uint32] - The promo ID to grant an item for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :PromoID :format])},
   "IGCVersion_205790"
   {"GetClientVersionV1"
    (steam-request
     "https://api.steampowered.com/IGCVersion_205790/GetClientVersion/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format]),
    "GetServerVersionV1"
    (steam-request
     "https://api.steampowered.com/IGCVersion_205790/GetServerVersion/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format])},
   "IPublishedFileService"
@@ -935,7 +1008,8 @@ return_previews [bool] - Return preview image and video details in the file deta
 return_children [bool] - Return child item ids in the file details
 return_short_description [bool] - Populate the short_description field instead of file_description
 return_for_sale_data [bool] - Return pricing information, if applicable
-return_metadata [bool, optional] - Populate the metadata"
+return_metadata [bool, optional] - Populate the metadata
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key
      :query_type
@@ -974,7 +1048,8 @@ return_metadata [bool, optional] - Populate the metadata"
 key [string] - Access key
 publishedfileid [uint64]
 appid [uint32]
-metadata [string]"
+metadata [string]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :publishedfileid :appid :metadata :format]),
    "UpdateTagsV1"
@@ -986,14 +1061,15 @@ key [string] - Access key
 publishedfileid [uint64]
 appid [uint32]
 add_tags [string]
-remove_tags [string]"
+remove_tags [string]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :publishedfileid :appid :add_tags :remove_tags :format])},
   "ITFItems_440"
   {"GetGoldenWrenchesV2"
    (steam-request
     "https://api.steampowered.com/ITFItems_440/GetGoldenWrenches/v0002"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format])},
   "ISteamWebUserPresenceOAuth"
@@ -1006,7 +1082,8 @@ message [uint32] - Message that was last known to the user
 pollid [uint32, optional] - Caller-specific poll id
 sectimeout [uint32, optional] - Long-poll timeout in seconds
 secidletime [uint32, optional] - How many seconds is client considering itself idle, e.g. screen is off
-use_accountids [uint32, optional] - Boolean, 0 (default): return steamid_from in output, 1: return accountid_from"
+use_accountids [uint32, optional] - Boolean, 0 (default): return steamid_from in output, 1: return accountid_from
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid
      :umqid
@@ -1020,20 +1097,23 @@ use_accountids [uint32, optional] - Boolean, 0 (default): return steamid_from in
   {"GetPlayerItemsV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_620/GetPlayerItems/v0001"
-    "steamid [uint64] - The Steam ID to fetch items for"
+    "steamid [uint64] - The Steam ID to fetch items for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :format]),
    "GetSchemaV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_620/GetSchema/v0001"
-    "language [string, optional] - The language to return the names in. Defaults to returning string keys."
+    "language [string, optional] - The language to return the names in. Defaults to returning string keys.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :format])},
   "IEconItems_218620"
   {"GetPlayerItemsV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_218620/GetPlayerItems/v0001"
-    "steamid [uint64] - The Steam ID to fetch items for"
+    "steamid [uint64] - The Steam ID to fetch items for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :format])},
   "IAccountRecoveryService"
@@ -1045,7 +1125,8 @@ use_accountids [uint32, optional] - Boolean, 0 (default): return steamid_from in
 loginuser_list [string]
 install_config [string]
 shasentryfile [string]
-machineid [string]"
+machineid [string]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:loginuser_list
      :install_config
@@ -1057,7 +1138,8 @@ machineid [string]"
     "https://api.steampowered.com/IAccountRecoveryService/RetrieveAccountRecoveryData/v0001"
     "Send account recovery data
 
-requesthandle [string]"
+requesthandle [string]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:requesthandle :format])},
   "ISteamUserAuth"
@@ -1066,7 +1148,8 @@ requesthandle [string]"
     "https://api.steampowered.com/ISteamUserAuth/AuthenticateUser/v0001"
     "steamid [uint64] - Should be the users steamid, unencrypted.
 sessionkey [rawbinary] - Should be a 32 byte random blob of data, which is then encrypted with RSA using the Steam system's public key.  Randomness is important here for security.
-encrypted_loginkey [rawbinary] - Should be the users hashed loginkey, AES encrypted with the sessionkey."
+encrypted_loginkey [rawbinary] - Should be the users hashed loginkey, AES encrypted with the sessionkey.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :sessionkey :encrypted_loginkey :format]),
    "AuthenticateUserTicketV1"
@@ -1074,14 +1157,16 @@ encrypted_loginkey [rawbinary] - Should be the users hashed loginkey, AES encryp
     "https://api.steampowered.com/ISteamUserAuth/AuthenticateUserTicket/v0001"
     "key [string] - access key
 appid [uint32] - appid of game
-ticket [string] - Ticket from GetAuthSessionTicket."
+ticket [string] - Ticket from GetAuthSessionTicket.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :appid :ticket :format])},
   "ISteamUserOAuth"
   {"GetTokenDetailsV1"
    (steam-request
     "https://api.steampowered.com/ISteamUserOAuth/GetTokenDetails/v0001"
-    "access_token [string] - OAuth2 token for which to return details"
+    "access_token [string] - OAuth2 token for which to return details
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:access_token :format])},
   "ISteamWorkshop"
@@ -1093,7 +1178,8 @@ itemcount [uint32] - Number of items to associate
 publishedfileid[0] [uint64, optional] - the workshop published file id
 gameitemid[0] [uint32, optional] - 3rd party ID for item
 revenuepercentage[0] [float, optional] - Percentage of revenue the owners of the workshop item will get from the sale of the item [0.0, 100.0].  For bundle-like items, send over an entry for each item in the bundle (gameitemid = bundle id) with different publishedfileids and with the revenue percentage pre-split amongst the items in the bundle (i.e. 30% / 10 items in the bundle)
-gameitemdescription[0] [string, optional] - Game's description of the game item"
+gameitemdescription[0] [string, optional] - Game's description of the game item
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:appid
      :itemcount
@@ -1105,20 +1191,23 @@ gameitemdescription[0] [string, optional] - Game's description of the game item"
    "GetContributorsV1"
    (steam-request
     "https://api.steampowered.com/ISteamWorkshop/GetContributors/v0001"
-    "appid [uint32] - AppID of game this transaction is for"
+    "appid [uint32] - AppID of game this transaction is for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:appid :format])},
   "IEconItems_841"
   {"GetPlayerItemsV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_841/GetPlayerItems/v0001"
-    "steamid [uint64] - The Steam ID to fetch items for"
+    "steamid [uint64] - The Steam ID to fetch items for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :format]),
    "GetSchemaV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_841/GetSchema/v0001"
-    "language [string, optional] - The language to return the names in. Defaults to returning string keys."
+    "language [string, optional] - The language to return the names in. Defaults to returning string keys.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :format])},
   "IGameServersService"
@@ -1127,7 +1216,8 @@ gameitemdescription[0] [string, optional] - Game's description of the game item"
     "https://api.steampowered.com/IGameServersService/GetAccountList/v0001"
     "Gets a list of game server accounts with their logon tokens
 
-key [string] - Access key"
+key [string] - Access key
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :format]),
    "CreateAccountV1"
@@ -1137,7 +1227,8 @@ key [string] - Access key"
 
 key [string] - Access key
 appid [uint32] - The app to use the account for
-memo [string] - The memo to set on the new account"
+memo [string] - The memo to set on the new account
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :appid :memo :format]),
    "SetMemoV1"
@@ -1147,7 +1238,8 @@ memo [string] - The memo to set on the new account"
 
 key [string] - Access key
 steamid [uint64] - The SteamID of the game server to set the memo on
-memo [string] - The memo to set on the new account"
+memo [string] - The memo to set on the new account
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :steamid :memo :format]),
    "ResetLoginTokenV1"
@@ -1156,7 +1248,8 @@ memo [string] - The memo to set on the new account"
     "Generates a new login token for the specified game server
 
 key [string] - Access key
-steamid [uint64] - The SteamID of the game server to reset the login token of"
+steamid [uint64] - The SteamID of the game server to reset the login token of
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :steamid :format]),
    "GetAccountPublicInfoV1"
@@ -1165,7 +1258,8 @@ steamid [uint64] - The SteamID of the game server to reset the login token of"
     "Gets public information about a given game server account
 
 key [string] - Access key
-steamid [uint64] - The SteamID of the game server to get info on"
+steamid [uint64] - The SteamID of the game server to get info on
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :format]),
    "GetServerSteamIDsByIPV1"
@@ -1174,7 +1268,8 @@ steamid [uint64] - The SteamID of the game server to get info on"
     "Gets a list of server SteamIDs given a list of IPs
 
 key [string] - Access key
-server_ips [string]"
+server_ips [string]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :server_ips :format]),
    "GetServerIPsBySteamIDV1"
@@ -1183,21 +1278,23 @@ server_ips [string]"
     "Gets a list of server IP addresses given a list of SteamIDs
 
 key [string] - Access key
-server_steamids [uint64]"
+server_steamids [uint64]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :server_steamids :format])},
   "ICSGOServers_730"
   {"GetGameServersStatusV1"
    (steam-request
     "https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format])},
   "IPortal2Leaderboards_841"
   {"GetBucketizedDataV1"
    (steam-request
     "https://api.steampowered.com/IPortal2Leaderboards_841/GetBucketizedData/v0001"
-    "leaderboardName [string] - The leaderboard name to fetch data for."
+    "leaderboardName [string] - The leaderboard name to fetch data for.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:leaderboardName :format])},
   "ISteamUserStats"
@@ -1207,13 +1304,15 @@ server_steamids [uint64]"
     "key [string] - access key
 steamid [uint64] - SteamID of user
 appid [uint32] - AppID to get achievements for
-l [string, optional] - Language to return strings for"
+l [string, optional] - Language to return strings for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :appid :l :format]),
    "GetGlobalAchievementPercentagesForAppV2"
    (steam-request
     "https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002"
-    "gameid [uint64] - GameID to retrieve the achievement percentages for"
+    "gameid [uint64] - GameID to retrieve the achievement percentages for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:gameid :format]),
    "GetSchemaForGameV1"
@@ -1221,7 +1320,8 @@ l [string, optional] - Language to return strings for"
     "https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v0001"
     "key [string] - access key
 appid [uint32] - appid of game
-l [string, optional] - localized langauge to return (english, french, etc.)"
+l [string, optional] - localized langauge to return (english, french, etc.)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :appid :l :format]),
    "GetUserStatsForGameV2"
@@ -1229,7 +1329,8 @@ l [string, optional] - localized langauge to return (english, french, etc.)"
     "https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002"
     "key [string] - access key
 steamid [uint64] - SteamID of user
-appid [uint32] - appid of game"
+appid [uint32] - appid of game
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :appid :format]),
    "GetGlobalStatsForGameV1"
@@ -1239,7 +1340,8 @@ appid [uint32] - appid of game"
 count [uint32] - Number of stats get data for
 name[0] [string] - Names of stat to get data for
 startdate [uint32, optional] - Start date for daily totals (unix epoch timestamp)
-enddate [uint32, optional] - End date for daily totals (unix epoch timestamp)"
+enddate [uint32, optional] - End date for daily totals (unix epoch timestamp)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid
      :count
@@ -1252,13 +1354,15 @@ enddate [uint32, optional] - End date for daily totals (unix epoch timestamp)"
     "https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v0002"
     "key [string] - access key
 appid [uint32] - appid of game
-l [string, optional] - localized language to return (english, french, etc.)"
+l [string, optional] - localized language to return (english, french, etc.)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :appid :l :format]),
    "GetNumberOfCurrentPlayersV1"
    (steam-request
     "https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v0001"
-    "appid [uint32] - AppID that we're getting user count for"
+    "appid [uint32] - AppID that we're getting user count for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :format]),
    "SetUserStatsForGameV1"
@@ -1269,7 +1373,8 @@ steamid [uint64] - SteamID of user
 appid [uint32] - appid of game
 count [uint32] - Number of stats and achievements to set a value for (name/value param pairs)
 name[0] [string] - Name of stat or achievement to set
-value[0] [uint32] - Value to set"
+value[0] [uint32] - Value to set
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key
      :steamid
@@ -1281,7 +1386,8 @@ value[0] [uint32] - Value to set"
    "GetGlobalAchievementPercentagesForAppV1"
    (steam-request
     "https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0001"
-    "gameid [uint64] - GameID to retrieve the achievement percentages for"
+    "gameid [uint64] - GameID to retrieve the achievement percentages for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:gameid :format]),
    "GetUserStatsForGameV1"
@@ -1289,7 +1395,8 @@ value[0] [uint32] - Value to set"
     "https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0001"
     "key [string] - access key
 steamid [uint64] - SteamID of user
-appid [uint32] - appid of game"
+appid [uint32] - appid of game
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :appid :format])},
   "ISteamSpecialSurvey"
@@ -1300,7 +1407,8 @@ appid [uint32] - appid of game"
 appid [uint32] - appid of game
 surveyid [uint32] - ID of the survey being taken
 steamid [uint64] - SteamID of the user taking the survey
-token [string] - Survey identity verification token for the user"
+token [string] - Survey identity verification token for the user
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :appid :surveyid :steamid :token :format]),
    "SetUserFinishedV1"
@@ -1310,7 +1418,8 @@ token [string] - Survey identity verification token for the user"
 appid [uint32] - appid of game
 surveyid [uint32] - ID of the survey being taken
 steamid [uint64] - SteamID of the user taking the survey
-token [string] - Survey identity verification token for the user"
+token [string] - Survey identity verification token for the user
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :appid :surveyid :steamid :token :format])},
   "IGameNotificationsService"
@@ -1324,7 +1433,8 @@ appid [uint32] - The appid to create the session for.
 context [uint64] - Game-specified context value the game can used to associate the session with some object on their backend.
 title [{message}] - The title of the session to be displayed within each user's list of sessions.
 users [{message}] - The initial state of all users in the session.
-steamid [uint64] - (Optional) steamid to make the request on behalf of -- if specified, the user must be in the session and all users being added to the session must be friends with the user."
+steamid [uint64] - (Optional) steamid to make the request on behalf of -- if specified, the user must be in the session and all users being added to the session must be friends with the user.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :appid :context :title :users :steamid :format]),
    "UpdateSessionV1"
@@ -1337,7 +1447,8 @@ sessionid [uint64] - The sessionid to update.
 appid [uint32] - The appid of the session to update.
 title [{message}] - (Optional) The new title of the session.  If not specified, the title will not be changed.
 users [{message}] - (Optional) A list of users whose state will be updated to reflect the given state. If the users are not already in the session, they will be added to it.
-steamid [uint64] - (Optional) steamid to make the request on behalf of -- if specified, the user must be in the session and all users being added to the session must be friends with the user."
+steamid [uint64] - (Optional) steamid to make the request on behalf of -- if specified, the user must be in the session and all users being added to the session must be friends with the user.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :sessionid :appid :title :users :steamid :format]),
    "EnumerateSessionsForAppV1"
@@ -1350,7 +1461,8 @@ appid [uint32] - The sessionid to request details for. Optional. If not specifie
 steamid [uint64] - The user whose sessions are to be enumerated.
 include_all_user_messages [bool] - (Optional) Boolean determining whether the message for all users should be included. Defaults to false.
 include_auth_user_message [bool] - (Optional) Boolean determining whether the message for the authenticated user should be included. Defaults to false.
-language [string] - (Optional) Language to localize the text in."
+language [string] - (Optional) Language to localize the text in.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key
      :appid
@@ -1367,7 +1479,8 @@ language [string] - (Optional) Language to localize the text in."
 key [string] - Access key
 sessions [{message}]
 appid [uint32] - The appid for the sessions.
-language [string] - Language to localize the text in."
+language [string] - Language to localize the text in.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :sessions :appid :language :format]),
    "RequestNotificationsV1"
@@ -1377,7 +1490,8 @@ language [string] - Language to localize the text in."
 
 key [string] - Access key
 steamid [uint64] - The steamid to request notifications for.
-appid [uint32] - The appid to request notifications for."
+appid [uint32] - The appid to request notifications for.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :steamid :appid :format]),
    "DeleteSessionV1"
@@ -1388,7 +1502,8 @@ appid [uint32] - The appid to request notifications for."
 key [string] - Access key
 sessionid [uint64] - The sessionid to delete.
 appid [uint32] - The appid of the session to delete.
-steamid [uint64] - (Optional) steamid to make the request on behalf of -- if specified, the user must be in the session."
+steamid [uint64] - (Optional) steamid to make the request on behalf of -- if specified, the user must be in the session.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :sessionid :appid :steamid :format]),
    "DeleteSessionBatchV1"
@@ -1398,7 +1513,8 @@ steamid [uint64] - (Optional) steamid to make the request on behalf of -- if spe
 
 key [string] - Access key
 sessionid [uint64] - The sessionid to delete.
-appid [uint32] - The appid of the session to delete."
+appid [uint32] - The appid of the session to delete.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :sessionid :appid :format])},
   "IEconDOTA2_570"
@@ -1407,38 +1523,44 @@ appid [uint32] - The appid of the session to delete."
     "https://api.steampowered.com/IEconDOTA2_570/GetEventStatsForAccount/v0001"
     "eventid [uint32] - The League ID of the compendium you're looking for.
 accountid [uint32] - The account ID to look up.
-language [string, optional] - The language to provide hero names in."
+language [string, optional] - The language to provide hero names in.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:eventid :accountid :language :format]),
    "GetGameItemsV1"
    (steam-request
     "https://api.steampowered.com/IEconDOTA2_570/GetGameItems/v0001"
-    "language [string, optional] - The language to provide item names in."
+    "language [string, optional] - The language to provide item names in.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :format]),
    "GetHeroesV1"
    (steam-request
     "https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001"
     "language [string, optional] - The language to provide hero names in.
-itemizedonly [bool, optional] - Return a list of itemized heroes only."
+itemizedonly [bool, optional] - Return a list of itemized heroes only.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :itemizedonly :format]),
    "GetItemIconPathV1"
    (steam-request
     "https://api.steampowered.com/IEconDOTA2_570/GetItemIconPath/v0001"
-    "iconname [string] - The item icon name to get the CDN path of"
+    "iconname [string] - The item icon name to get the CDN path of
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:iconname :format]),
    "GetRaritiesV1"
    (steam-request
     "https://api.steampowered.com/IEconDOTA2_570/GetRarities/v0001"
-    "language [string, optional] - The language to provide rarity names in."
+    "language [string, optional] - The language to provide rarity names in.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :format]),
    "GetTournamentPrizePoolV1"
    (steam-request
     "https://api.steampowered.com/IEconDOTA2_570/GetTournamentPrizePool/v0001"
-    "leagueid [uint32, optional] - The ID of the league to get the prize pool of"
+    "leagueid [uint32, optional] - The ID of the league to get the prize pool of
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:leagueid :format])},
   "ITFPromos_440"
@@ -1446,14 +1568,16 @@ itemizedonly [bool, optional] - Return a list of itemized heroes only."
    (steam-request
     "https://api.steampowered.com/ITFPromos_440/GetItemID/v0001"
     "steamid [uint64] - The Steam ID to fetch items for
-promoid [uint32] - The promo ID to grant an item for"
+promoid [uint32] - The promo ID to grant an item for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :promoid :format]),
    "GrantItemV1"
    (steam-request
     "https://api.steampowered.com/ITFPromos_440/GrantItem/v0001"
     "steamid [uint64] - The Steam ID to fetch items for
-promoid [uint32] - The promo ID to grant an item for"
+promoid [uint32] - The promo ID to grant an item for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :promoid :format])},
   "ISteamUser"
@@ -1462,7 +1586,8 @@ promoid [uint32] - The promo ID to grant an item for"
     "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001"
     "key [string] - access key
 vanityurl [string] - The vanity URL to get a SteamID for
-url_type [int32, optional] - The type of vanity URL. 1 (default): Individual profile, 2: Group, 3: Official game group"
+url_type [int32, optional] - The type of vanity URL. 1 (default): Individual profile, 2: Group, 3: Official game group
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :vanityurl :url_type :format]),
    "GrantPackageV1"
@@ -1473,7 +1598,8 @@ steamid [uint64] - SteamID of user
 packageid [uint32] - PackageID to grant
 ipaddress [string, optional] - ip address of user in string format (xxx.xxx.xxx.xxx).
 thirdpartykey [string, optional] - Optionally associate third party key during grant. 'thirdpartyappid' will have to be set.
-thirdpartyappid [uint32, optional] - Has to be set if 'thirdpartykey' is set. The appid associated with the 'thirdpartykey'."
+thirdpartyappid [uint32, optional] - Has to be set if 'thirdpartykey' is set. The appid associated with the 'thirdpartykey'.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key
      :steamid
@@ -1487,42 +1613,48 @@ thirdpartyappid [uint32, optional] - Has to be set if 'thirdpartykey' is set. Th
     "https://api.steampowered.com/ISteamUser/GetAppPriceInfo/v0001"
     "key [string] - access key
 steamid [uint64] - SteamID of user
-appids [string] - Comma-delimited list of appids (max: 100)"
+appids [string] - Comma-delimited list of appids (max: 100)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :appids :format]),
    "GetPublisherAppOwnershipV1"
    (steam-request
     "https://api.steampowered.com/ISteamUser/GetPublisherAppOwnership/v0001"
     "key [string] - access key
-steamid [uint64] - SteamID of user"
+steamid [uint64] - SteamID of user
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :format]),
    "GetPublisherAppOwnershipV2"
    (steam-request
     "https://api.steampowered.com/ISteamUser/GetPublisherAppOwnership/v0002"
     "key [string] - access key
-steamid [uint64] - SteamID of user"
+steamid [uint64] - SteamID of user
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :format]),
    "GetUserGroupListV1"
    (steam-request
     "https://api.steampowered.com/ISteamUser/GetUserGroupList/v0001"
     "key [string] - access key
-steamid [uint64] - SteamID of user"
+steamid [uint64] - SteamID of user
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :format]),
    "GetPlayerSummariesV2"
    (steam-request
     "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002"
     "key [string] - access key
-steamids [string] - Comma-delimited list of SteamIDs (max: 100)"
+steamids [string] - Comma-delimited list of SteamIDs (max: 100)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamids :format]),
    "GetPlayerBansV1"
    (steam-request
     "https://api.steampowered.com/ISteamUser/GetPlayerBans/v0001"
     "key [string] - access key
-steamids [string] - Comma-delimited list of SteamIDs"
+steamids [string] - Comma-delimited list of SteamIDs
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamids :format]),
    "GetFriendListV1"
@@ -1530,14 +1662,16 @@ steamids [string] - Comma-delimited list of SteamIDs"
     "https://api.steampowered.com/ISteamUser/GetFriendList/v0001"
     "key [string] - access key
 steamid [uint64] - SteamID of user
-relationship [string, optional] - relationship type (ex: friend)"
+relationship [string, optional] - relationship type (ex: friend)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :relationship :format]),
    "GetPlayerSummariesV1"
    (steam-request
     "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0001"
     "key [string] - access key
-steamids [string] - Comma-delimited list of SteamIDs"
+steamids [string] - Comma-delimited list of SteamIDs
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamids :format]),
    "CheckAppOwnershipV1"
@@ -1545,27 +1679,30 @@ steamids [string] - Comma-delimited list of SteamIDs"
     "https://api.steampowered.com/ISteamUser/CheckAppOwnership/v0001"
     "key [string] - access key
 steamid [uint64] - SteamID of user
-appid [uint32] - AppID to check for ownership"
+appid [uint32] - AppID to check for ownership
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :appid :format])},
   "IDOTA2Match_570"
   {"GetLeagueListingV1"
    (steam-request
     "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format]),
    "GetLiveLeagueGamesV1"
    (steam-request
     "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001"
     "league_id [uint32, optional] - Only show matches of the specified league id
-match_id [uint64, optional] - Only show matches of the specified match id"
+match_id [uint64, optional] - Only show matches of the specified match id
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:league_id :match_id :format]),
    "GetMatchDetailsV1"
    (steam-request
     "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v0001"
-    "match_id [uint64] - Match id"
+    "match_id [uint64] - Match id
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:match_id :format]),
    "GetMatchHistoryV1"
@@ -1579,7 +1716,8 @@ account_id [string, optional] - An account ID to get matches from. This will fai
 league_id [string, optional] - The league ID to return games from
 start_at_match_id [uint64, optional] - The minimum match ID to start from
 matches_requested [string, optional] - The number of requested matches to return
-tournament_games_only [string, optional] - Whether or not tournament games should only be returned"
+tournament_games_only [string, optional] - Whether or not tournament games should only be returned
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:hero_id
      :game_mode
@@ -1595,21 +1733,24 @@ tournament_games_only [string, optional] - Whether or not tournament games shoul
    (steam-request
     "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v0001"
     "start_at_match_seq_num [uint64, optional] - 
-matches_requested [uint32, optional] - "
+matches_requested [uint32, optional] - 
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:start_at_match_seq_num :matches_requested :format]),
    "GetScheduledLeagueGamesV1"
    (steam-request
     "https://api.steampowered.com/IDOTA2Match_570/GetScheduledLeagueGames/v0001"
     "date_min [uint32, optional] - The starting time stamp to collect scheduled games from. If ignored, it will use the current time
-date_max [uint32, optional] - The ending time stamp. If this is more than 7 days past the starting time stamp, it will be clamped to 7 days."
+date_max [uint32, optional] - The ending time stamp. If this is more than 7 days past the starting time stamp, it will be clamped to 7 days.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:date_min :date_max :format]),
    "GetTeamInfoByTeamIDV1"
    (steam-request
     "https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v0001"
     "start_at_team_id [uint64, optional] - 
-teams_requested [uint32, optional] - "
+teams_requested [uint32, optional] - 
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:start_at_team_id :teams_requested :format]),
    "GetTournamentPlayerStatsV1"
@@ -1620,7 +1761,8 @@ league_id [string, optional] -
 hero_id [string, optional] - 
 time_frame [string, optional] - 
 match_id [uint64, optional] - 
-phase_id [uint32, optional] - "
+phase_id [uint32, optional] - 
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:account_id
      :league_id
@@ -1633,20 +1775,21 @@ phase_id [uint32, optional] - "
   {"GetRealtimeStatsV1"
    (steam-request
     "https://api.steampowered.com/IDOTA2MatchStats_570/GetRealtimeStats/v0001"
-    "server_steam_id [uint64] - "
+    "server_steam_id [uint64] - 
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:server_steam_id :format])},
   "IGCVersion_570"
   {"GetClientVersionV1"
    (steam-request
     "https://api.steampowered.com/IGCVersion_570/GetClientVersion/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format]),
    "GetServerVersionV1"
    (steam-request
     "https://api.steampowered.com/IGCVersion_570/GetServerVersion/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format])},
   "IDOTA2Fantasy_570"
@@ -1658,7 +1801,8 @@ StartTime [uint32, optional] - An optional filter for minimum timestamp
 EndTime [uint32, optional] - An optional filter for maximum timestamp
 matchid [uint64, optional] - An optional filter for a specific match
 SeriesID [uint32, optional] - An optional filter for a specific series
-PlayerAccountID [uint32, optional] - An optional filter for a specific player"
+PlayerAccountID [uint32, optional] - An optional filter for a specific player
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:FantasyLeagueID
      :StartTime
@@ -1670,14 +1814,16 @@ PlayerAccountID [uint32, optional] - An optional filter for a specific player"
    "GetPlayerOfficialInfoV1"
    (steam-request
     "https://api.steampowered.com/IDOTA2Fantasy_570/GetPlayerOfficialInfo/v0001"
-    "accountid [uint32] - The account ID to look up"
+    "accountid [uint32] - The account ID to look up
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:accountid :format])},
   "IEconItems_238460"
   {"GetPlayerItemsV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_238460/GetPlayerItems/v0001"
-    "steamid [uint64] - The Steam ID to fetch items for"
+    "steamid [uint64] - The Steam ID to fetch items for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :format])},
   "ISteamNews"
@@ -1687,7 +1833,8 @@ PlayerAccountID [uint32, optional] - An optional filter for a specific player"
     "appid [uint32] - AppID to retrieve news for
 maxlength [uint32, optional] - Maximum length for the content to return, if this is 0 the full content is returned, if it's less then a blurb is generated to fit.
 enddate [uint32, optional] - Retrieve posts earlier than this date (unix epoch timestamp)
-count [uint32, optional] - # of posts to retrieve (default 20)"
+count [uint32, optional] - # of posts to retrieve (default 20)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :maxlength :enddate :count :format]),
    "GetNewsForAppV2"
@@ -1697,7 +1844,8 @@ count [uint32, optional] - # of posts to retrieve (default 20)"
 maxlength [uint32, optional] - Maximum length for the content to return, if this is 0 the full content is returned, if it's less then a blurb is generated to fit.
 enddate [uint32, optional] - Retrieve posts earlier than this date (unix epoch timestamp)
 count [uint32, optional] - # of posts to retrieve (default 20)
-feeds [string, optional] - Comma-seperated list of feed names to return news for"
+feeds [string, optional] - Comma-seperated list of feed names to return news for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :maxlength :enddate :count :feeds :format]),
    "GetNewsForAppAuthedV1"
@@ -1707,7 +1855,8 @@ feeds [string, optional] - Comma-seperated list of feed names to return news for
 appid [uint32] - AppID to retrieve news for
 maxlength [uint32, optional] - Maximum length for the content to return, if this is 0 the full content is returned, if it's less then a blurb is generated to fit.
 enddate [uint32, optional] - Retrieve posts earlier than this date (unix epoch timestamp)
-count [uint32, optional] - # of posts to retrieve (default 20)"
+count [uint32, optional] - # of posts to retrieve (default 20)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :appid :maxlength :enddate :count :format]),
    "GetNewsForAppAuthedV2"
@@ -1718,7 +1867,8 @@ appid [uint32] - AppID to retrieve news for
 maxlength [uint32, optional] - Maximum length for the content to return, if this is 0 the full content is returned, if it's less then a blurb is generated to fit.
 enddate [uint32, optional] - Retrieve posts earlier than this date (unix epoch timestamp)
 count [uint32, optional] - # of posts to retrieve (default 20)
-feeds [string, optional] - Comma-seperated list of feed names to return news for"
+feeds [string, optional] - Comma-seperated list of feed names to return news for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :appid :maxlength :enddate :count :feeds :format])},
   "ICheatReportingService"
@@ -1738,7 +1888,8 @@ playerreport [bool] - (Optional) extra information about the source of the cheat
 noreportid [bool] - (Optional) dont return report id
 gamemode [uint32] - (Optional) extra information about state of game - was it a specific type of game play (0 = generic)
 suspicionstarttime [uint32] - (Optional) extra information indicating how far back the game thinks is interesting for this user
-severity [uint32] - (Optional) level of severity of bad action being reported"
+severity [uint32] - (Optional) level of severity of bad action being reported
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key
      :steamid
@@ -1765,7 +1916,8 @@ reportid [uint64] - The reportid originally used to report cheating.
 cheatdescription [string] - Text describing cheating infraction.
 duration [uint32] - Ban duration requested in seconds.
 delayban [bool] - Delay the ban according to default ban delay rules.
-flags [uint32] - Additional information about the ban request."
+flags [uint32] - Additional information about the ban request.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key
      :steamid
@@ -1788,7 +1940,8 @@ timebegin [uint32] - The end of the time range.
 reportidmin [uint64] - Minimum reportID to include
 includereports [bool] - (Optional) Include reports.
 includebans [bool] - (Optional) Include ban requests.
-steamid [uint64] - (Optional) Query just for this steamid."
+steamid [uint64] - (Optional) Query just for this steamid.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key
      :appid
@@ -1807,7 +1960,8 @@ steamid [uint64] - (Optional) Query just for this steamid."
 key [string] - Access key
 steamid [uint64] - steamid of the user.
 appid [uint32] - The appid the user is playing.
-session_id [uint64] - session id"
+session_id [uint64] - session id
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :steamid :appid :session_id :format]),
    "StartSecureMultiplayerSessionV1"
@@ -1817,7 +1971,8 @@ session_id [uint64] - session id"
 
 key [string] - Access key
 steamid [uint64] - steamid of the user.
-appid [uint32] - The appid the user is playing."
+appid [uint32] - The appid the user is playing.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :steamid :appid :format]),
    "EndSecureMultiplayerSessionV1"
@@ -1828,7 +1983,8 @@ appid [uint32] - The appid the user is playing."
 key [string] - Access key
 steamid [uint64] - steamid of the user.
 appid [uint32] - The appid the user is playing.
-session_id [uint64] - session id"
+session_id [uint64] - session id
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :steamid :appid :session_id :format]),
    "ReportCheatDataV1"
@@ -1846,7 +2002,8 @@ time_started [uint64] - local system time when cheat process started. ( 0 if not
 time_stopped [uint64] - local system time when cheat process stopped. ( 0 if still running )
 cheatname [string] - descriptive name for the cheat.
 game_process_id [uint32] - process ID of the running game.
-cheat_process_id [uint32] - process ID of the cheat process that ran"
+cheat_process_id [uint32] - process ID of the cheat process that ran
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key
      :steamid
@@ -1866,7 +2023,8 @@ cheat_process_id [uint32] - process ID of the cheat process that ran"
     "https://api.steampowered.com/ISteamEconomy/CanTrade/v0001"
     "appid [uint32] - That the key is associated with. Must be a steam economy app.
 steamid [uint64] - SteamID of user attempting to initiate a trade
-targetid [uint64] - SteamID of user that is the target of the trade invitation"
+targetid [uint64] - SteamID of user that is the target of the trade invitation
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :steamid :targetid :format]),
    "FinalizeAssetTransactionV1"
@@ -1875,7 +2033,8 @@ targetid [uint64] - SteamID of user that is the target of the trade invitation"
     "appid [uint32] - The app ID the user is buying assets for
 steamid [uint64] - SteamID of the user making a purchase
 txnid [string] - The transaction ID
-language [string] - The local language for the user"
+language [string] - The local language for the user
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:appid :steamid :txnid :language :format]),
    "GetAssetClassInfoV1"
@@ -1885,7 +2044,8 @@ language [string] - The local language for the user"
 language [string, optional] - The user's local language
 class_count [uint32] - Number of classes requested. Must be at least one.
 classid0 [uint64] - Class ID of the nth class.
-instanceid0 [uint64, optional] - Instance ID of the nth class."
+instanceid0 [uint64, optional] - Instance ID of the nth class.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :language :class_count :classid0 :instanceid0 :format]),
    "GetAssetPricesV1"
@@ -1893,7 +2053,8 @@ instanceid0 [uint64, optional] - Instance ID of the nth class."
     "https://api.steampowered.com/ISteamEconomy/GetAssetPrices/v0001"
     "appid [uint32] - Must be a steam economy app.
 currency [string, optional] - The currency to filter for
-language [string, optional] - The user's local language"
+language [string, optional] - The user's local language
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :currency :language :format]),
    "GetExportedAssetsForUserV1"
@@ -1901,13 +2062,15 @@ language [string, optional] - The user's local language"
     "https://api.steampowered.com/ISteamEconomy/GetExportedAssetsForUser/v0001"
     "steamid [uint64] - SteamID of user
 appid [uint32] - The app to get exported items from.
-contextid [uint64] - The context in the app to get exported items from."
+contextid [uint64] - The context in the app to get exported items from.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :appid :contextid :format]),
    "GetMarketPricesV1"
    (steam-request
     "https://api.steampowered.com/ISteamEconomy/GetMarketPrices/v0001"
-    "appid [uint32] - Must be a steam economy app."
+    "appid [uint32] - Must be a steam economy app.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :format]),
    "StartAssetTransactionV1"
@@ -1921,7 +2084,8 @@ currency [string] - The local currency for the user
 language [string] - The local language for the user
 ipaddress [string] - The user's IP address
 referrer [string, optional] - The referring URL
-clientauth [bool, optional] - If true (default is false), the authorization will appear in the user's steam client overlay, rather than as a web page - useful for stores that are embedded in products."
+clientauth [bool, optional] - If true (default is false), the authorization will appear in the user's steam client overlay, rather than as a web page - useful for stores that are embedded in products.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:appid
      :steamid
@@ -1938,7 +2102,8 @@ clientauth [bool, optional] - If true (default is false), the authorization will
     "https://api.steampowered.com/ISteamEconomy/StartTrade/v0001"
     "appid [uint32] - That the key is associated with. Must be a steam economy app.
 partya [uint64] - SteamID of first user in the trade
-partyb [uint64] - SteamID of second user in the trade"
+partyb [uint64] - SteamID of second user in the trade
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :partya :partyb :format])},
   "IEconDOTA2_205790"
@@ -1947,38 +2112,44 @@ partyb [uint64] - SteamID of second user in the trade"
     "https://api.steampowered.com/IEconDOTA2_205790/GetEventStatsForAccount/v0001"
     "eventid [uint32] - The League ID of the compendium you're looking for.
 accountid [uint32] - The account ID to look up.
-language [string, optional] - The language to provide hero names in."
+language [string, optional] - The language to provide hero names in.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:eventid :accountid :language :format]),
    "GetGameItemsV1"
    (steam-request
     "https://api.steampowered.com/IEconDOTA2_205790/GetGameItems/v0001"
-    "language [string, optional] - The language to provide item names in."
+    "language [string, optional] - The language to provide item names in.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :format]),
    "GetHeroesV1"
    (steam-request
     "https://api.steampowered.com/IEconDOTA2_205790/GetHeroes/v0001"
     "language [string, optional] - The language to provide hero names in.
-itemizedonly [bool, optional] - Return a list of itemized heroes only."
+itemizedonly [bool, optional] - Return a list of itemized heroes only.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :itemizedonly :format]),
    "GetItemIconPathV1"
    (steam-request
     "https://api.steampowered.com/IEconDOTA2_205790/GetItemIconPath/v0001"
-    "iconname [string] - The item icon name to get the CDN path of"
+    "iconname [string] - The item icon name to get the CDN path of
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:iconname :format]),
    "GetRaritiesV1"
    (steam-request
     "https://api.steampowered.com/IEconDOTA2_205790/GetRarities/v0001"
-    "language [string, optional] - The language to provide rarity names in."
+    "language [string, optional] - The language to provide rarity names in.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :format]),
    "GetTournamentPrizePoolV1"
    (steam-request
     "https://api.steampowered.com/IEconDOTA2_205790/GetTournamentPrizePool/v0001"
-    "leagueid [uint32, optional] - The ID of the league to get the prize pool of"
+    "leagueid [uint32, optional] - The ID of the league to get the prize pool of
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:leagueid :format])},
   "IEconMarketService"
@@ -1988,7 +2159,8 @@ itemizedonly [bool, optional] - Return a list of itemized heroes only."
     "Checks whether or not an account is allowed to use the market
 
 key [string] - Access key
-steamid [uint64] - The SteamID of the user to check"
+steamid [uint64] - The SteamID of the user to check
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :steamid :format]),
    "GetAssetIDV1"
@@ -1998,7 +2170,8 @@ steamid [uint64] - The SteamID of the user to check"
 
 key [string] - Access key
 appid [uint32] - The app that's asking. Must match the app of the listing and must belong to the publisher group that owns the API key making the request
-listingid [uint64] - The identifier of the listing to get information for"
+listingid [uint64] - The identifier of the listing to get information for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :appid :listingid :format]),
    "GetPopularV1"
@@ -2011,34 +2184,37 @@ language [string] - The language to use in item descriptions
 rows [uint32, optional] - Number of rows per page
 start [uint32] - The result number to start at
 filter_appid [uint32] - If present, the app ID to limit results to
-ecurrency [uint32] - If present, prices returned will be represented in this currency"
+ecurrency [uint32] - If present, prices returned will be represented in this currency
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :language :rows :start :filter_appid :ecurrency :format])},
   "ISteamPayPalPaymentsHub"
   {"PayPalPaymentsHubPaymentNotificationV1"
    (steam-request
     "https://api.steampowered.com/ISteamPayPalPaymentsHub/PayPalPaymentsHubPaymentNotification/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:format])},
   "IDOTA2Match_205790"
   {"GetLeagueListingV1"
    (steam-request
     "https://api.steampowered.com/IDOTA2Match_205790/GetLeagueListing/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format]),
    "GetLiveLeagueGamesV1"
    (steam-request
     "https://api.steampowered.com/IDOTA2Match_205790/GetLiveLeagueGames/v0001"
     "league_id [uint32, optional] - Only show matches of the specified league id
-match_id [uint64, optional] - Only show matches of the specified match id"
+match_id [uint64, optional] - Only show matches of the specified match id
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:league_id :match_id :format]),
    "GetMatchDetailsV1"
    (steam-request
     "https://api.steampowered.com/IDOTA2Match_205790/GetMatchDetails/v0001"
-    "match_id [uint64] - Match id"
+    "match_id [uint64] - Match id
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:match_id :format]),
    "GetMatchHistoryV1"
@@ -2052,7 +2228,8 @@ account_id [string, optional] - An account ID to get matches from. This will fai
 league_id [string, optional] - The league ID to return games from
 start_at_match_id [uint64, optional] - The minimum match ID to start from
 matches_requested [string, optional] - The number of requested matches to return
-tournament_games_only [string, optional] - Whether or not tournament games should only be returned"
+tournament_games_only [string, optional] - Whether or not tournament games should only be returned
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:hero_id
      :game_mode
@@ -2068,21 +2245,24 @@ tournament_games_only [string, optional] - Whether or not tournament games shoul
    (steam-request
     "https://api.steampowered.com/IDOTA2Match_205790/GetMatchHistoryBySequenceNum/v0001"
     "start_at_match_seq_num [uint64, optional] - 
-matches_requested [uint32, optional] - "
+matches_requested [uint32, optional] - 
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:start_at_match_seq_num :matches_requested :format]),
    "GetScheduledLeagueGamesV1"
    (steam-request
     "https://api.steampowered.com/IDOTA2Match_205790/GetScheduledLeagueGames/v0001"
     "date_min [uint32, optional] - The starting time stamp to collect scheduled games from. If ignored, it will use the current time
-date_max [uint32, optional] - The ending time stamp. If this is more than 7 days past the starting time stamp, it will be clamped to 7 days."
+date_max [uint32, optional] - The ending time stamp. If this is more than 7 days past the starting time stamp, it will be clamped to 7 days.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:date_min :date_max :format]),
    "GetTeamInfoByTeamIDV1"
    (steam-request
     "https://api.steampowered.com/IDOTA2Match_205790/GetTeamInfoByTeamID/v0001"
     "start_at_team_id [uint64, optional] - 
-teams_requested [uint32, optional] - "
+teams_requested [uint32, optional] - 
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:start_at_team_id :teams_requested :format]),
    "GetTournamentPlayerStatsV1"
@@ -2092,7 +2272,8 @@ teams_requested [uint32, optional] - "
 league_id [string, optional] - 
 hero_id [string, optional] - 
 time_frame [string, optional] - 
-match_id [uint64, optional] - "
+match_id [uint64, optional] - 
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:account_id :league_id :hero_id :time_frame :match_id :format])},
   "ITFPromos_205790"
@@ -2100,14 +2281,16 @@ match_id [uint64, optional] - "
    (steam-request
     "https://api.steampowered.com/ITFPromos_205790/GetItemID/v0001"
     "steamid [uint64] - The Steam ID to fetch items for
-promoid [uint32] - The promo ID to grant an item for"
+promoid [uint32] - The promo ID to grant an item for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :promoid :format]),
    "GrantItemV1"
    (steam-request
     "https://api.steampowered.com/ITFPromos_205790/GrantItem/v0001"
     "steamid [uint64] - The Steam ID to fetch items for
-promoid [uint32] - The promo ID to grant an item for"
+promoid [uint32] - The promo ID to grant an item for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :promoid :format])},
   "ISteamDirectory"
@@ -2115,7 +2298,8 @@ promoid [uint32] - The promo ID to grant an item for"
    (steam-request
     "https://api.steampowered.com/ISteamDirectory/GetCMList/v0001"
     "cellid [uint32] - Client's Steam cell ID
-maxcount [uint32, optional] - Max number of servers to return"
+maxcount [uint32, optional] - Max number of servers to return
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:cellid :maxcount :format])},
   "IDOTA2Ticket_570"
@@ -2123,28 +2307,32 @@ maxcount [uint32, optional] - Max number of servers to return"
    (steam-request
     "https://api.steampowered.com/IDOTA2Ticket_570/SetSteamAccountPurchased/v0001"
     "eventid [uint32] - Event ID
-steamid [uint64] - The 64-bit Steam ID"
+steamid [uint64] - The 64-bit Steam ID
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:eventid :steamid :format]),
    "SteamAccountValidForEventV1"
    (steam-request
     "https://api.steampowered.com/IDOTA2Ticket_570/SteamAccountValidForEvent/v0001"
     "eventid [uint32] - Event ID
-steamid [uint64] - The 64-bit Steam ID"
+steamid [uint64] - The 64-bit Steam ID
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:eventid :steamid :format])},
   "ITestExternalPrivilegeService"
   {"CallPublisherKeyV1"
    (steam-request
     "https://api.steampowered.com/ITestExternalPrivilegeService/CallPublisherKey/v0001"
-    "key [string] - Access key"
+    "key [string] - Access key
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :format]),
    "CallPublisherKeyOwnsAppV1"
    (steam-request
     "https://api.steampowered.com/ITestExternalPrivilegeService/CallPublisherKeyOwnsApp/v0001"
     "key [string] - Access key
-appid [uint32]"
+appid [uint32]
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key :appid :format])},
   "ITFPromos_570"
@@ -2152,14 +2340,16 @@ appid [uint32]"
    (steam-request
     "https://api.steampowered.com/ITFPromos_570/GetItemID/v0001"
     "steamid [uint64] - The Steam ID to fetch items for
-promoid [uint32] - The promo ID to grant an item for"
+promoid [uint32] - The promo ID to grant an item for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :promoid :format]),
    "GrantItemV1"
    (steam-request
     "https://api.steampowered.com/ITFPromos_570/GrantItem/v0001"
     "steamid [uint64] - The Steam ID to fetch items for
-promoid [uint32] - The promo ID to grant an item for"
+promoid [uint32] - The promo ID to grant an item for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :promoid :format])},
   "ISteamCDN"
@@ -2170,7 +2360,8 @@ promoid [uint32] - The promo ID to grant an item for"
 cdnname [string] - Steam name of CDN property
 allowedipblocks [string, optional] - comma-separated list of allowed IP address blocks in CIDR format - blank for not used
 allowedasns [string, optional] - comma-separated list of allowed client network AS numbers - blank for not used
-allowedipcountries [string, optional] - comma-separated list of allowed client IP country codes in ISO 3166-1 format - blank for not used"
+allowedipcountries [string, optional] - comma-separated list of allowed client IP country codes in ISO 3166-1 format - blank for not used
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:key
      :cdnname
@@ -2185,19 +2376,22 @@ allowedipcountries [string, optional] - comma-separated list of allowed client I
     "appid [uint32] - AppID of game
 buildid [uint32] - BuildID
 betakey [string] - beta key, required. Use public for default branch
-description [string, optional] - optional description for this build"
+description [string, optional] - optional description for this build
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:appid :buildid :betakey :description :format]),
    "GetServersAtAddressV1"
    (steam-request
     "https://api.steampowered.com/ISteamApps/GetServersAtAddress/v0001"
-    "addr [string] - IP or IP:queryport to list"
+    "addr [string] - IP or IP:queryport to list
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:addr :format]),
    "GetAppDepotVersionsV1"
    (steam-request
     "https://api.steampowered.com/ISteamApps/GetAppDepotVersions/v0001"
-    "appid [uint32] - AppID of depot"
+    "appid [uint32] - AppID of depot
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :format]),
    "GetCheatingReportsV1"
@@ -2208,7 +2402,8 @@ timebegin [uint32] - Time range begin
 timeend [uint32] - Time range end
 includereports [bool] - include reports that were not bans
 includebans [bool] - include reports that were bans
-reportidmin [uint64, optional] - minimum report id"
+reportidmin [uint64, optional] - minimum report id
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid
      :timebegin
@@ -2220,53 +2415,58 @@ reportidmin [uint64, optional] - minimum report id"
    "GetAppListV2"
    (steam-request
     "https://api.steampowered.com/ISteamApps/GetAppList/v0002"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format]),
    "GetAppBuildsV1"
    (steam-request
     "https://api.steampowered.com/ISteamApps/GetAppBuilds/v0001"
     "appid [uint32] - AppID of game
-count [uint32, optional] - # of builds to retrieve (default 10)"
+count [uint32, optional] - # of builds to retrieve (default 10)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :count :format]),
    "UpToDateCheckV1"
    (steam-request
     "https://api.steampowered.com/ISteamApps/UpToDateCheck/v0001"
     "appid [uint32] - AppID of game
-version [uint32] - The installed version of the game"
+version [uint32] - The installed version of the game
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :version :format]),
    "GetPlayersBannedV1"
    (steam-request
     "https://api.steampowered.com/ISteamApps/GetPlayersBanned/v0001"
-    "appid [uint32] - AppID of game"
+    "appid [uint32] - AppID of game
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :format]),
    "GetServerListV1"
    (steam-request
     "https://api.steampowered.com/ISteamApps/GetServerList/v0001"
     "filter [string, optional] - Query filter string
-limit [uint32, optional] - Limit number of servers in the response"
+limit [uint32, optional] - Limit number of servers in the response
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:filter :limit :format]),
    "GetAppListV1"
    (steam-request
     "https://api.steampowered.com/ISteamApps/GetAppList/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format])},
   "ISteamWebAPIUtil"
   {"GetServerInfoV1"
    (steam-request
     "https://api.steampowered.com/ISteamWebAPIUtil/GetServerInfo/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format]),
    "GetSupportedAPIListV1"
    (steam-request
     "https://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001"
-    "key [string, optional] - access key"
+    "key [string, optional] - access key
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :format])},
   "IDOTA2Fantasy_205790"
@@ -2278,7 +2478,8 @@ StartTime [uint32, optional] - An optional filter for minimum timestamp
 EndTime [uint32, optional] - An optional filter for maximum timestamp
 matchid [uint64, optional] - An optional filter for a specific match
 SeriesID [uint32, optional] - An optional filter for a specific series
-PlayerAccountID [uint32, optional] - An optional filter for a specific player"
+PlayerAccountID [uint32, optional] - An optional filter for a specific player
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:FantasyLeagueID
      :StartTime
@@ -2290,58 +2491,62 @@ PlayerAccountID [uint32, optional] - An optional filter for a specific player"
    "GetPlayerOfficialInfoV1"
    (steam-request
     "https://api.steampowered.com/IDOTA2Fantasy_205790/GetPlayerOfficialInfo/v0001"
-    "accountid [uint32] - The account ID to look up"
+    "accountid [uint32] - The account ID to look up
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:accountid :format])},
   "IEconItems_440"
   {"GetPlayerItemsV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_440/GetPlayerItems/v0001"
-    "steamid [uint64] - The Steam ID to fetch items for"
+    "steamid [uint64] - The Steam ID to fetch items for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :format]),
    "GetSchemaV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_440/GetSchema/v0001"
-    "language [string, optional] - The language to return the names in. Defaults to returning string keys."
+    "language [string, optional] - The language to return the names in. Defaults to returning string keys.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :format]),
    "GetSchemaURLV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_440/GetSchemaURL/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format]),
    "GetStoreMetaDataV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_440/GetStoreMetaData/v0001"
-    "language [string, optional] - The language to results in."
+    "language [string, optional] - The language to results in.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :format]),
    "GetStoreStatusV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_440/GetStoreStatus/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format])},
   "IGCVersion_440"
   {"GetClientVersionV1"
    (steam-request
     "https://api.steampowered.com/IGCVersion_440/GetClientVersion/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format]),
    "GetServerVersionV1"
    (steam-request
     "https://api.steampowered.com/IGCVersion_440/GetServerVersion/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format])},
   "IGCVersion_730"
   {"GetServerVersionV1"
    (steam-request
     "https://api.steampowered.com/IGCVersion_730/GetServerVersion/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format])},
   "ISteamMicroTxn"
@@ -2351,7 +2556,8 @@ PlayerAccountID [uint32, optional] - An optional filter for a specific player"
     "steamid [uint64] - SteamID of user with the agreement
 agreementid [uint64] - ID of agreement
 appid [uint32] - AppID of game
-nextprocessdate [string] - Date for next process"
+nextprocessdate [string] - Date for next process
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :agreementid :appid :nextprocessdate :format]),
    "QueryTxnV2"
@@ -2359,7 +2565,8 @@ nextprocessdate [string] - Date for next process"
     "https://api.steampowered.com/ISteamMicroTxn/QueryTxn/v0002"
     "appid [uint32] - AppID of game this transaction is for
 orderid [uint64, optional] - 3rd party ID for transaction
-transid [uint64, optional] - Steam transaction ID"
+transid [uint64, optional] - Steam transaction ID
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :orderid :transid :format]),
    "CancelAgreementV1"
@@ -2367,7 +2574,8 @@ transid [uint64, optional] - Steam transaction ID"
     "https://api.steampowered.com/ISteamMicroTxn/CancelAgreement/v0001"
     "steamid [uint64] - SteamID of user with the agreement
 agreementid [uint64] - ID of agreement
-appid [uint32] - AppID of game"
+appid [uint32] - AppID of game
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :agreementid :appid :format]),
    "InitTxnV1"
@@ -2397,7 +2605,8 @@ bundlecount [uint32, optional] - Number of bundles in cart
 bundleid[0] [uint32, optional] - 3rd party ID of the bundle. This shares the same ID space as 3rd party items.
 bundle_qty[0] [uint32, optional] - Quantity of this bundle
 bundle_desc[0] [string, optional] - Description of bundle
-bundle_category[0] [string, optional] - Optional category grouping for bundle"
+bundle_category[0] [string, optional] - Optional category grouping for bundle
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid
      :steamid
@@ -2431,7 +2640,8 @@ bundle_category[0] [string, optional] - Optional category grouping for bundle"
     "appid [uint32] - AppID of game this transaction is for
 type [string] - Report type (GAMESALES, STEAMSTORE, SETTLEMENT)
 time [string] - Beginning time to start report from (RFC 3339 UTC format)
-maxresults [uint32, optional] - Max number of results to return (up to 1000)"
+maxresults [uint32, optional] - Max number of results to return (up to 1000)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :type :time :maxresults :format]),
    "GetReportV1"
@@ -2440,7 +2650,8 @@ maxresults [uint32, optional] - Max number of results to return (up to 1000)"
     "appid [uint32] - AppID of game this transaction is for
 type [string] - Report type (GAMESALES, STEAMSTORE, SETTLEMENT)
 time [string] - Beginning time to start report from (RFC 3339 UTC format)
-maxresults [uint32, optional] - Max number of results to return (up to 1000)"
+maxresults [uint32, optional] - Max number of results to return (up to 1000)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :type :time :maxresults :format]),
    "GetReportV2"
@@ -2449,14 +2660,16 @@ maxresults [uint32, optional] - Max number of results to return (up to 1000)"
     "appid [uint32] - AppID of game this transaction is for
 type [string] - Report type (GAMESALES, STEAMSTORE, SETTLEMENT)
 time [string] - Beginning time to start report from (RFC 3339 UTC format)
-maxresults [uint32, optional] - Max number of results to return (up to 1000)"
+maxresults [uint32, optional] - Max number of results to return (up to 1000)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :type :time :maxresults :format]),
    "FinalizeTxnV2"
    (steam-request
     "https://api.steampowered.com/ISteamMicroTxn/FinalizeTxn/v0002"
     "orderid [uint64] - 3rd party ID for transaction
-appid [uint32] - AppID of game this transaction is for"
+appid [uint32] - AppID of game this transaction is for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid :appid :format]),
    "InitTxnV2"
@@ -2486,7 +2699,8 @@ bundlecount [uint32, optional] - Number of bundles in cart
 bundleid[0] [uint32, optional] - 3rd party ID of the bundle. This shares the same ID space as 3rd party items.
 bundle_qty[0] [uint32, optional] - Quantity of this bundle
 bundle_desc[0] [string, optional] - Description of bundle
-bundle_category[0] [string, optional] - Optional category grouping for bundle"
+bundle_category[0] [string, optional] - Optional category grouping for bundle
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid
      :steamid
@@ -2518,7 +2732,8 @@ bundle_category[0] [string, optional] - Optional category grouping for bundle"
    (steam-request
     "https://api.steampowered.com/ISteamMicroTxn/GetUserInfo/v0001"
     "steamid [uint64, optional] - SteamID of user making purchase
-ipaddress [string, optional] - ip address of user in string format (xxx.xxx.xxx.xxx). Only required if usersession=web"
+ipaddress [string, optional] - ip address of user in string format (xxx.xxx.xxx.xxx). Only required if usersession=web
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :ipaddress :format]),
    "InitTxnV3"
@@ -2548,7 +2763,8 @@ bundlecount [uint32, optional] - Number of bundles in cart
 bundleid[0] [uint32, optional] - 3rd party ID of the bundle. This shares the same ID space as 3rd party items.
 bundle_qty[0] [uint32, optional] - Quantity of this bundle
 bundle_desc[0] [string, optional] - Description of bundle
-bundle_category[0] [string, optional] - Optional category grouping for bundle"
+bundle_category[0] [string, optional] - Optional category grouping for bundle
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid
      :steamid
@@ -2580,21 +2796,24 @@ bundle_category[0] [string, optional] - Optional category grouping for bundle"
    (steam-request
     "https://api.steampowered.com/ISteamMicroTxn/GetUserInfo/v0002"
     "steamid [uint64, optional] - SteamID of user making purchase
-ipaddress [string, optional] - ip address of user in string format (xxx.xxx.xxx.xxx). Only required if usersession=web"
+ipaddress [string, optional] - ip address of user in string format (xxx.xxx.xxx.xxx). Only required if usersession=web
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :ipaddress :format]),
    "FinalizeTxnV1"
    (steam-request
     "https://api.steampowered.com/ISteamMicroTxn/FinalizeTxn/v0001"
     "orderid [uint64] - 3rd party ID for transaction
-appid [uint32] - AppID of game this transaction is for"
+appid [uint32] - AppID of game this transaction is for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid :appid :format]),
    "RefundTxnV2"
    (steam-request
     "https://api.steampowered.com/ISteamMicroTxn/RefundTxn/v0002"
     "orderid [uint64] - 3rd party ID for transaction
-appid [uint32] - AppID of game this transaction is for"
+appid [uint32] - AppID of game this transaction is for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid :appid :format]),
    "ProcessAgreementV1"
@@ -2605,14 +2824,16 @@ steamid [uint64] - SteamID of user with the agreement
 agreementid [uint64] - ID of agreement
 appid [uint32] - AppID of game
 amount [int32] - Total cost (in cents) to charge
-currency [string] - ISO 4217 currency code"
+currency [string] - ISO 4217 currency code
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid :steamid :agreementid :appid :amount :currency :format]),
    "GetUserAgreementInfoV1"
    (steam-request
     "https://api.steampowered.com/ISteamMicroTxn/GetUserAgreementInfo/v0001"
     "steamid [uint64] - SteamID of user making purchase
-appid [uint32] - AppID of game"
+appid [uint32] - AppID of game
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :appid :format]),
    "QueryTxnV1"
@@ -2620,39 +2841,44 @@ appid [uint32] - AppID of game"
     "https://api.steampowered.com/ISteamMicroTxn/QueryTxn/v0001"
     "appid [uint32] - AppID of game this transaction is for
 orderid [uint64, optional] - 3rd party ID for transaction
-transid [uint64, optional] - Steam transaction ID"
+transid [uint64, optional] - Steam transaction ID
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:appid :orderid :transid :format]),
    "RefundTxnV1"
    (steam-request
     "https://api.steampowered.com/ISteamMicroTxn/RefundTxn/v0001"
     "orderid [uint64] - 3rd party ID for transaction
-appid [uint32] - AppID of game this transaction is for"
+appid [uint32] - AppID of game this transaction is for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:orderid :appid :format])},
   "IEconItems_205790"
   {"GetPlayerItemsV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_205790/GetPlayerItems/v0001"
-    "steamid [uint64] - The Steam ID to fetch items for"
+    "steamid [uint64] - The Steam ID to fetch items for
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:steamid :format]),
    "GetSchemaV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_205790/GetSchema/v0001"
-    "language [string, optional] - The language to return the names in. Defaults to returning string keys."
+    "language [string, optional] - The language to return the names in. Defaults to returning string keys.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :format]),
    "GetSchemaURLV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_205790/GetSchemaURL/v0001"
-    ""
+    "format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:format]),
    "GetStoreMetaDataV1"
    (steam-request
     "https://api.steampowered.com/IEconItems_205790/GetStoreMetaData/v0001"
-    "language [string, optional] - The language to results in."
+    "language [string, optional] - The language to results in.
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:language :format])},
   "ISteamGameServerStats"
@@ -2664,7 +2890,8 @@ gameid [uint64] - game id to get stats for, if not a mod, it's safe to use appid
 appid [uint32] - appID of the game
 rangestart [string] - range start date/time (Format: YYYY-MM-DD HH:MM:SS, seattle local time
 rangeend [string] - range end date/time (Format: YYYY-MM-DD HH:MM:SS, seattle local time
-maxresults [uint32, optional] - Max number of results to return (up to 1000)"
+maxresults [uint32, optional] - Max number of results to return (up to 1000)
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :get
     [:key :gameid :appid :rangestart :rangeend :maxresults :format])},
   "ISteamPublishedItemVoting"
@@ -2674,7 +2901,8 @@ maxresults [uint32, optional] - Max number of results to return (up to 1000)"
     "steamid [uint64] - Steam ID of user
 appid [uint32] - appID of product
 count [uint32] - Count of how many items we are querying
-publishedfileid[0] [uint64, optional] - The Published File ID who's vote details are required"
+publishedfileid[0] [uint64, optional] - The Published File ID who's vote details are required
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid
      :appid
@@ -2686,7 +2914,8 @@ publishedfileid[0] [uint64, optional] - The Published File ID who's vote details
     "https://api.steampowered.com/ISteamPublishedItemVoting/UserVoteSummary/v0001"
     "steamid [uint64] - Steam ID of user
 count [uint32] - Count of how many items we are querying
-publishedfileid[0] [uint64, optional] - A Specific Published Item"
+publishedfileid[0] [uint64, optional] - A Specific Published Item
+format [string, optional] - The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"
     :post
     [:steamid :count [:indexed-array :publishedfileid] :format])}})
 

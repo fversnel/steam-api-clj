@@ -15,7 +15,7 @@
  (vec
   (for
    [[interface methods] (vec requests)]
-   [interface (vec (keys methods))])))
+   [interface (vec (sort (keys methods)))])))
 
 (defn interfaces [] (keys requests))
 

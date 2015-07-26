@@ -15,39 +15,35 @@
                    (for [method (get interface "methods")
                          :let [method-name (get method "name")
                                version (get method "version")
+                               description (str (get method "description"))
                                parameters (conj (vec (get method "parameters"))
                                                 {"name" "format"
                                                  "type" "string"
                                                  "optional" true
-                                                 "description" "The desired response format: json, xml, vdf, or csv. If not specified then json is assumed"})
-                               doc-string (let [general-description (get method "description")
-                                                parameter-descriptions
-                                                  (map (fn [parameter]
-                                                         (str (get parameter "name")
-                                                              " ["
-                                                              (get parameter "type")
-                                                              (when (get parameter "optional") ", optional")
-                                                              "]"
-                                                              (when (get parameter "description")
-                                                                (str " - " (get parameter "description")))))
-                                                       parameters)]
-                                            (str (when general-description (str general-description "\n\n"))
-                                                 (clojure.string/join "\n" parameter-descriptions)))
+                                                 "description" "The desired response format: json, xml, or vdf. Default: json"})
+                               parameters (->> parameters
+                                              (map (fn [parameter]
+                                                     (let [parameter-name (get parameter "name")
+                                                           indexed-array? (.contains parameter-name "[0]")
+                                                           parameter-name (.replace parameter-name "[0]" "")
+                                                           description (str "("
+                                                                            (get parameter "type")
+                                                                            (when (get parameter "optional") ", optional")
+                                                                            ")"
+                                                                            (when (get parameter "description")
+                                                                              (str " " (get parameter "description"))))]
+                                                       [(keyword parameter-name)
+                                                         (if indexed-array? [:indexed-array description]
+                                                                            description)]))))
                                http-method (case (get method "httpmethod")
                                              "POST" :post
                                              "GET" :get)
-                               parameters-spec (map (fn [parameter]
-                                                 (let [parameter-name (get parameter "name")]
-                                                   (if (.contains parameter-name "[0]")
-                                                     [:indexed-array (keyword (.replace parameter-name "[0]" ""))]
-                                                     (keyword parameter-name))))
-                                               parameters)
-                               api-url (if (contains? (set parameters-spec) :key)
-                                         secured-url
-                                         unsecured-url)
+                               parameter-names (vec (map first parameters))
+                               api-url (if (contains? parameter-names :key) secured-url unsecured-url)
                                url (util/url api-url interface-name method-name (format "v%04d" version))]]
                      {(str method-name "V" version)
-                      (list 'steam-request url doc-string http-method (vec parameters-spec))}))})))
+                      (list 'steam-request url description http-method
+                            (->> parameters (apply concat) vec))}))})))
 
 (defn generate-api []
   (let [api-list (json-parser/parse-stream (io/reader steam-api-list-file))
@@ -63,7 +59,16 @@
                      ~'(defn request [interface method parameters]
                          ((get-in requests [interface method]) parameters))
 
+                     ~'(defn interfaces []
+                         (keys requests))
+
+                     ~'(defn method-info [interface method]
+                        (meta (get-in requests [interface method])))
+
+                     ~'(defn interface-methods [interface]
+                         (keys (get-in requests [interface])))
+
                      (~'def ~'requests ~api-requests))
-        code-as-string (apply str (map #(str (.replace (with-out-str (pprint %)) "\\n" "\n") "\n")
+        code-as-string (apply str (map #(str (with-out-str (pprint %)) "\n")
                                        api-code))]
     (spit "src/steam_api_clj/core.clj" code-as-string)))

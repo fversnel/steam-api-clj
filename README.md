@@ -14,7 +14,7 @@ steam-api-clj is available as a Maven artifact from Clojars.
 With Leiningen/Boot:
 
 ```clojure
-[steam-api-clj "0.0.1"]
+[steam-api-clj "0.2.0"]
 ```
 
 ## Usage

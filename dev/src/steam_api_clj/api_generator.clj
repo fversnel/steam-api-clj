@@ -59,6 +59,10 @@
                      ~'(defn request [interface method parameters]
                          ((get-in requests [interface method]) parameters))
 
+                     ~'(defn list-api-calls []
+                         (vec (for [[interface methods] (vec requests)]
+                                [interface (vec (keys methods))])))
+
                      ~'(defn interfaces []
                          (keys requests))
 

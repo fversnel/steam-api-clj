@@ -59,7 +59,7 @@ Each API call also has metadata associated with it that tells you what it is:
 Place the updated steam-api-list.json in the resource folder and do:
 
 ```clojure
-(org.fversnel.steam-api.generator/generate-api)
+(org.fversnel.steam-api.api-generator/generate-api)
 ```
 
 This will generate a new core.clj file with the updated API.

@@ -1,4 +1,4 @@
-(ns org.fversnel.steam-api.generator
+(ns org.fversnel.steam-api.api-generator
   (:require [org.fversnel.steam-api.util :as util]
             [clojure.java.io :as io]
             [clojure.pprint :refer [pprint]]

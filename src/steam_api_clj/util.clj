@@ -1,4 +1,4 @@
-(ns steam-api-clj.util)
+(ns org.fversnel.steam-api.util)
 
 (defn comma-separated-string
   "Useful for steam API calls that require arrays as comma-separated values"

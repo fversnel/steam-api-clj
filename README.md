@@ -14,7 +14,7 @@ steam-api-clj is available as a Maven artifact from Clojars.
 With Leiningen/Boot:
 
 ```clojure
-[steam-api-clj "0.2.0"]
+[org.fversnel/steam-api "0.3.0"]
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ With Leiningen/Boot:
 ```clojure
 ;; In your ns statement:
 (ns my.ns
-  (:require [steam-api-clj.core :as steam-api]))
+  (:require [org.fversnel.steam-api.core :as steam-api]))
 ```
 
 And simply create the desired request by specifying the Steam interface, method name and parameters
@@ -59,7 +59,7 @@ Each API call also has metadata associated with it that tells you what it is:
 Place the updated steam-api-list.json in the resource folder and do:
 
 ```clojure
-(steam-api-clj.generator/generate-api)
+(org.fversnel.steam-api.generator/generate-api)
 ```
 
 This will generate a new core.clj file with the updated API.

@@ -1,6 +1,6 @@
 (ns
- steam-api-clj.core
- (:require [steam-api-clj.api :refer [steam-request]]))
+ org.fversnel.steam-api.core
+ (:require [org.fversnel.steam-api.api :refer [steam-request]]))
 
 (declare requests)
 

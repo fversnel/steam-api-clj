@@ -1,5 +1,5 @@
-(ns steam-api-clj.generator
-  (:require [steam-api-clj.util :as util]
+(ns org.fversnel.steam-api.generator
+  (:require [org.fversnel.steam-api.util :as util]
             [clojure.java.io :as io]
             [clojure.pprint :refer [pprint]]
             [cheshire.core :as json-parser]))
@@ -51,8 +51,8 @@
                        {:secured-url "https://api.steampowered.com"
                         :unsecured-url "https://api.steampowered.com"}
                        api-list)
-        api-code `(~'(ns steam-api-clj.core
-                      (:require [steam-api-clj.api :refer [steam-request]]))
+        api-code `(~'(ns org.fversnel.steam-api.core
+                      (:require [org.fversnel.steam-api.api :refer [steam-request]]))
 
                      ~'(declare requests)
 

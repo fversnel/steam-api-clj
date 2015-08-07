@@ -1,5 +1,5 @@
-(ns steam-api-clj.api
-  (:require [steam-api-clj.util :as util]))
+(ns org.fversnel.steam-api.api
+  (:require [org.fversnel.steam-api.util :as util]))
 
 (def data-format-headers
   {"json" "application/json"
@@ -26,9 +26,10 @@
             (let [value (get parameters name)]
               (case type
                 :normal
-                {name (cond
-                        (coll? value) (util/comma-separated-string value)
-                        :else value)}
+                {(clojure.core/name name)
+                 (cond
+                  (coll? value) (util/comma-separated-string value)
+                  :else value)}
 
                 :indexed-array
                 (to-indexed-param-array name value))))]

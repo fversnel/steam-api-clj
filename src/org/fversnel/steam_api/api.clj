@@ -44,22 +44,18 @@
   (let [parameters-spec# (apply hash-map parameters-spec)
         parameter-names# (keys parameters-spec#)]
     (with-meta `(fn
-                   ~(if-not (empty? parameter-names#)
-                      [{:keys (->> parameter-names# (map (comp symbol name)) vec) :as 'parameters}]
-                      [])
+                  ~(if (not-empty parameter-names#)
+                     [{:keys (->> parameter-names# (map (comp symbol name)) vec) :as 'parameters}]
+                     [])
 
-                   ~(merge
-                      {:method http-method
-                       :url    url}
-                      (case http-method
-                        :get `{:query-params (make-request-params ~parameters-spec# ~'parameters)
-                               :headers      (merge
-                                               {"ContentType" "application/x-www-form-urlencoded; charset=utf-8"}
-                                               (when (contains? ~'parameters :format)
-                                                 {"Accept" (get data-format-headers ~'format)}))}
-                        :post `{:form-params (make-request-params ~parameters-spec# ~'parameters)
-                                :headers     {"ContentType" "application/x-www-form-urlencoded; charset=utf-8"}}
-                        {})))
+                  {:method ~http-method
+                   :url    ~url
+                   :params (make-request-params ~parameters-spec# ~'parameters)
+                   :headers (merge
+                              {"Content-Type" "application/x-www-form-urlencoded; charset=utf-8"}
+                              (if (contains? ~'parameters :format)
+                                {"Accept" (get data-format-headers ~'format)}
+                                {"Accept" ~(get data-format-headers "json")}))})
                {:url url
                 :description description
                 :http-method http-method

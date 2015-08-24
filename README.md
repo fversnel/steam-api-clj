@@ -1,10 +1,10 @@
 # steam-api-clj
 
-Library that allows you to easily create Steam Web API calls from clojure.
+Library that allows you to easily create Steam Web API calls from Clojure.
 
 ## Design goals
 
-- Not bound to any specific http library, I leave that up to the user
+- Not bound to any specific http library, I leave that up to you.
 - API can be generated from Steam's own [API specification](http://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001/?format=json)
 
 ## Installation
@@ -53,6 +53,24 @@ Each API call also has metadata associated with it that tells you what it is:
                  :feeds "(string, optional) Comma-seperated list of feed names to return news for"
                  :format "(string, optional) The desired response format: json, xml, or vdf. Default: json"]}
 ```
+
+Steam has two distinct methods for putting an array of values in a request parameter.
+
+The first one is as comma-separated value:
+
+```clojure
+{"something" "42,43,44"}
+```
+
+But sometimes they require the following structure:
+
+```clojure
+{"something[0]" 42 "something[1]" 43 "something[2]" 44}
+```
+
+Either way you can just hand over your collection to the library and the library
+will make sure that your collection will be converted according to the Steam Web API
+specification.
 
 ## Re-generating the API
 

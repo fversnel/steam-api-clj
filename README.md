@@ -68,9 +68,9 @@ But sometimes they require the following structure:
 {"something[0]" 42 "something[1]" 43 "something[2]" 44}
 ```
 
-Either way you can just hand over your collection to the library and the library
-will make sure that your collection will be converted according to the Steam Web API
-specification.
+Either way you can just hand over your collection `[42 43 44]` to the library and the library
+will make sure that your collection will be converted according to the specification
+of that specific parameter.
 
 ## Re-generating the API
 

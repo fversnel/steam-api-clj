@@ -6,7 +6,10 @@
 
 (def steam-api-list-file (-> "steam-api-list.json" io/resource io/file))
 
-(defn generate-requests [{:keys [secured-url unsecured-url]} api-list]
+(defn generate-requests
+  "Generates a map of steam-requests from a parsed steam-web-api.json structure."
+
+  [{:keys [secured-url unsecured-url]} api-list]
   (apply merge
          (for [interface (get-in api-list ["apilist" "interfaces"])
                :let [interface-name (get interface "name")]]
@@ -45,7 +48,10 @@
                       (list 'steam-request url description http-method
                             (->> parameters (apply concat) vec))}))})))
 
-(defn generate-api []
+(defn generate-api
+  "Generate the Steam Web API from the steam-api-list.json in the resources folder.
+   The generated API will be placed in src/org.fversnel.steam_api/core.clj"
+  []
   (let [api-list (json-parser/parse-stream (io/reader steam-api-list-file))
         api-requests (generate-requests
                        {:secured-url "https://api.steampowered.com"

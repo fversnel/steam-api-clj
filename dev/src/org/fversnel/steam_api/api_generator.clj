@@ -41,7 +41,7 @@
                                http-method (case (get method "httpmethod")
                                              "POST" :post
                                              "GET" :get)
-                               parameter-names (vec (map first parameters))
+                               parameter-names (set (map first parameters))
                                api-url (if (contains? parameter-names :key) secured-url unsecured-url)
                                url (util/url api-url interface-name method-name (format "v%04d" version))]]
                      {(str method-name "V" version)
@@ -54,8 +54,8 @@
   []
   (let [api-list (json-parser/parse-stream (io/reader steam-api-list-file))
         api-requests (generate-requests
-                       {:secured-url "https://api.steampowered.com"
-                        :unsecured-url "https://api.steampowered.com"}
+                       {:unsecured-url "https://api.steampowered.com"
+                        :secured-url "https://partner.steam-api.com"}
                        api-list)
         api-code `(~'(ns org.fversnel.steam-api.core
                       (:require [org.fversnel.steam-api.api :refer [steam-request]]))
@@ -81,4 +81,4 @@
                      (~'def ~'requests ~api-requests))
         code-as-string (apply str (map #(str (with-out-str (pprint %)) "\n")
                                        api-code))]
-    (spit "src/steam_api_clj/core.clj" code-as-string)))
+    (spit "src/org/fversnel/steam_api/core.clj" code-as-string)))

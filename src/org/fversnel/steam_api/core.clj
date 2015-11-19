@@ -219,7 +219,7 @@
   "IEconService"
   {"FlushInventoryCacheV1"
    (steam-request
-    "https://api.steampowered.com/IEconService/FlushInventoryCache/v0001"
+    "https://partner.steam-api.com/IEconService/FlushInventoryCache/v0001"
     "Flushes the cache for a user's inventory in a specific app context"
     :post
     [:key
@@ -234,7 +234,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "FlushAssetAppearanceCacheV1"
    (steam-request
-    "https://api.steampowered.com/IEconService/FlushAssetAppearanceCache/v0001"
+    "https://partner.steam-api.com/IEconService/FlushAssetAppearanceCache/v0001"
     "Flushes the display cache for assets.  This will result in calls to GetAssetClassInfo for each asset class the next time it is displayed."
     :post
     [:key
@@ -245,7 +245,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetTradeOffersV1"
    (steam-request
-    "https://api.steampowered.com/IEconService/GetTradeOffers/v0001"
+    "https://partner.steam-api.com/IEconService/GetTradeOffers/v0001"
     "Get a list of sent or received trade offers"
     :get
     [:key
@@ -268,7 +268,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetTradeOfferV1"
    (steam-request
-    "https://api.steampowered.com/IEconService/GetTradeOffer/v0001"
+    "https://partner.steam-api.com/IEconService/GetTradeOffer/v0001"
     "Gets a specific trade offer"
     :get
     [:key
@@ -281,7 +281,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetTradeOffersSummaryV1"
    (steam-request
-    "https://api.steampowered.com/IEconService/GetTradeOffersSummary/v0001"
+    "https://partner.steam-api.com/IEconService/GetTradeOffersSummary/v0001"
     "Get counts of pending and new trade offers"
     :get
     [:key
@@ -292,7 +292,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "DeclineTradeOfferV1"
    (steam-request
-    "https://api.steampowered.com/IEconService/DeclineTradeOffer/v0001"
+    "https://partner.steam-api.com/IEconService/DeclineTradeOffer/v0001"
     "Decline a trade offer someone sent to us"
     :post
     [:key
@@ -303,7 +303,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "CancelTradeOfferV1"
    (steam-request
-    "https://api.steampowered.com/IEconService/CancelTradeOffer/v0001"
+    "https://partner.steam-api.com/IEconService/CancelTradeOffer/v0001"
     "Cancel a trade offer we sent"
     :post
     [:key
@@ -401,7 +401,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetLeaderboardEntriesV1"
    (steam-request
-    "https://api.steampowered.com/ISteamLeaderboards/GetLeaderboardEntries/v0001"
+    "https://partner.steam-api.com/ISteamLeaderboards/GetLeaderboardEntries/v0001"
     ""
     :get
     [:key
@@ -422,7 +422,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetLeaderboardsForGameV1"
    (steam-request
-    "https://api.steampowered.com/ISteamLeaderboards/GetLeaderboardsForGame/v0001"
+    "https://partner.steam-api.com/ISteamLeaderboards/GetLeaderboardsForGame/v0001"
     ""
     :get
     [:key
@@ -433,7 +433,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetLeaderboardsForGameV2"
    (steam-request
-    "https://api.steampowered.com/ISteamLeaderboards/GetLeaderboardsForGame/v0002"
+    "https://partner.steam-api.com/ISteamLeaderboards/GetLeaderboardsForGame/v0002"
     ""
     :get
     [:key
@@ -488,7 +488,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetRecentlyPlayedGamesV1"
    (steam-request
-    "https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001"
+    "https://partner.steam-api.com/IPlayerService/GetRecentlyPlayedGames/v0001"
     "Gets information about a player's recently played games"
     :get
     [:key
@@ -501,7 +501,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetOwnedGamesV1"
    (steam-request
-    "https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001"
+    "https://partner.steam-api.com/IPlayerService/GetOwnedGames/v0001"
     "Return a list of games owned by the player"
     :get
     [:key
@@ -518,7 +518,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetSteamLevelV1"
    (steam-request
-    "https://api.steampowered.com/IPlayerService/GetSteamLevel/v0001"
+    "https://partner.steam-api.com/IPlayerService/GetSteamLevel/v0001"
     "Returns the Steam Level of a user"
     :get
     [:key
@@ -529,7 +529,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetBadgesV1"
    (steam-request
-    "https://api.steampowered.com/IPlayerService/GetBadges/v0001"
+    "https://partner.steam-api.com/IPlayerService/GetBadges/v0001"
     "Gets badges that are owned by a specific user"
     :get
     [:key
@@ -540,7 +540,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetCommunityBadgeProgressV1"
    (steam-request
-    "https://api.steampowered.com/IPlayerService/GetCommunityBadgeProgress/v0001"
+    "https://partner.steam-api.com/IPlayerService/GetCommunityBadgeProgress/v0001"
     "Gets all the quests needed to get the specified badge, and which are completed"
     :get
     [:key
@@ -553,7 +553,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "IsPlayingSharedGameV1"
    (steam-request
-    "https://api.steampowered.com/IPlayerService/IsPlayingSharedGame/v0001"
+    "https://partner.steam-api.com/IPlayerService/IsPlayingSharedGame/v0001"
     "Returns valid lender SteamID if game currently played is borrowed"
     :get
     [:key
@@ -567,7 +567,7 @@
   "ISteamCommunity"
   {"ReportAbuseV1"
    (steam-request
-    "https://api.steampowered.com/ISteamCommunity/ReportAbuse/v0001"
+    "https://partner.steam-api.com/ISteamCommunity/ReportAbuse/v0001"
     ""
     :post
     [:key
@@ -591,7 +591,7 @@
   "IBroadcastService"
   {"PostGameDataFrameV1"
    (steam-request
-    "https://api.steampowered.com/IBroadcastService/PostGameDataFrame/v0001"
+    "https://partner.steam-api.com/IBroadcastService/PostGameDataFrame/v0001"
     "Add a game meta data frame to broadcast"
     :post
     [:key
@@ -609,7 +609,7 @@
   "IWorkshopService"
   {"SetItemPaymentRulesV1"
    (steam-request
-    "https://api.steampowered.com/IWorkshopService/SetItemPaymentRules/v0001"
+    "https://partner.steam-api.com/IWorkshopService/SetItemPaymentRules/v0001"
     "Set item payment rules."
     :post
     [:key
@@ -628,7 +628,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetFinalizedContributorsV1"
    (steam-request
-    "https://api.steampowered.com/IWorkshopService/GetFinalizedContributors/v0001"
+    "https://partner.steam-api.com/IWorkshopService/GetFinalizedContributors/v0001"
     "Get a list of contributors for a specific gameitemid/app combination."
     :post
     [:key
@@ -641,7 +641,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetItemDailyRevenueV1"
    (steam-request
-    "https://api.steampowered.com/IWorkshopService/GetItemDailyRevenue/v0001"
+    "https://partner.steam-api.com/IWorkshopService/GetItemDailyRevenue/v0001"
     "Get item revenue for a specific app/item definition for a date range."
     :post
     [:key
@@ -658,7 +658,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "PopulateItemDescriptionsV1"
    (steam-request
-    "https://api.steampowered.com/IWorkshopService/PopulateItemDescriptions/v0001"
+    "https://partner.steam-api.com/IWorkshopService/PopulateItemDescriptions/v0001"
     "Populate block of item descriptions."
     :post
     [:key
@@ -1205,7 +1205,7 @@
   "IPublishedFileService"
   {"QueryFilesV1"
    (steam-request
-    "https://api.steampowered.com/IPublishedFileService/QueryFiles/v0001"
+    "https://partner.steam-api.com/IPublishedFileService/QueryFiles/v0001"
     "Performs a search query for published files"
     :get
     [:key
@@ -1268,7 +1268,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "SetDeveloperMetadataV1"
    (steam-request
-    "https://api.steampowered.com/IPublishedFileService/SetDeveloperMetadata/v0001"
+    "https://partner.steam-api.com/IPublishedFileService/SetDeveloperMetadata/v0001"
     "Sets the metadata for a developer on the published file"
     :post
     [:key
@@ -1283,7 +1283,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "UpdateTagsV1"
    (steam-request
-    "https://api.steampowered.com/IPublishedFileService/UpdateTags/v0001"
+    "https://partner.steam-api.com/IPublishedFileService/UpdateTags/v0001"
     "Updates tags on the published file"
     :post
     [:key
@@ -1398,7 +1398,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "AuthenticateUserTicketV1"
    (steam-request
-    "https://api.steampowered.com/ISteamUserAuth/AuthenticateUserTicket/v0001"
+    "https://partner.steam-api.com/ISteamUserAuth/AuthenticateUserTicket/v0001"
     ""
     :get
     [:key
@@ -1473,7 +1473,7 @@
   "IGameServersService"
   {"GetAccountListV1"
    (steam-request
-    "https://api.steampowered.com/IGameServersService/GetAccountList/v0001"
+    "https://partner.steam-api.com/IGameServersService/GetAccountList/v0001"
     "Gets a list of game server accounts with their logon tokens"
     :get
     [:key
@@ -1482,7 +1482,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "CreateAccountV1"
    (steam-request
-    "https://api.steampowered.com/IGameServersService/CreateAccount/v0001"
+    "https://partner.steam-api.com/IGameServersService/CreateAccount/v0001"
     "Creates a persistent game server account"
     :post
     [:key
@@ -1495,7 +1495,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "SetMemoV1"
    (steam-request
-    "https://api.steampowered.com/IGameServersService/SetMemo/v0001"
+    "https://partner.steam-api.com/IGameServersService/SetMemo/v0001"
     "This method changes the memo associated with the game server account. Memos do not affect the account in any way. The memo shows up in the GetAccountList response and serves only as a reminder of what the account is used for."
     :post
     [:key
@@ -1508,7 +1508,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "ResetLoginTokenV1"
    (steam-request
-    "https://api.steampowered.com/IGameServersService/ResetLoginToken/v0001"
+    "https://partner.steam-api.com/IGameServersService/ResetLoginToken/v0001"
     "Generates a new login token for the specified game server"
     :post
     [:key
@@ -1519,7 +1519,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetAccountPublicInfoV1"
    (steam-request
-    "https://api.steampowered.com/IGameServersService/GetAccountPublicInfo/v0001"
+    "https://partner.steam-api.com/IGameServersService/GetAccountPublicInfo/v0001"
     "Gets public information about a given game server account"
     :get
     [:key
@@ -1530,7 +1530,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetServerSteamIDsByIPV1"
    (steam-request
-    "https://api.steampowered.com/IGameServersService/GetServerSteamIDsByIP/v0001"
+    "https://partner.steam-api.com/IGameServersService/GetServerSteamIDsByIP/v0001"
     "Gets a list of server SteamIDs given a list of IPs"
     :get
     [:key
@@ -1541,7 +1541,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetServerIPsBySteamIDV1"
    (steam-request
-    "https://api.steampowered.com/IGameServersService/GetServerIPsBySteamID/v0001"
+    "https://partner.steam-api.com/IGameServersService/GetServerIPsBySteamID/v0001"
     "Gets a list of server IP addresses given a list of SteamIDs"
     :get
     [:key
@@ -1571,7 +1571,7 @@
   "ISteamUserStats"
   {"GetPlayerAchievementsV1"
    (steam-request
-    "https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001"
+    "https://partner.steam-api.com/ISteamUserStats/GetPlayerAchievements/v0001"
     ""
     :get
     [:key
@@ -1595,7 +1595,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetSchemaForGameV1"
    (steam-request
-    "https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v0001"
+    "https://partner.steam-api.com/ISteamUserStats/GetSchemaForGame/v0001"
     ""
     :get
     [:key
@@ -1608,7 +1608,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetUserStatsForGameV2"
    (steam-request
-    "https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002"
+    "https://partner.steam-api.com/ISteamUserStats/GetUserStatsForGame/v0002"
     ""
     :get
     [:key
@@ -1638,7 +1638,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetSchemaForGameV2"
    (steam-request
-    "https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v0002"
+    "https://partner.steam-api.com/ISteamUserStats/GetSchemaForGame/v0002"
     ""
     :get
     [:key
@@ -1660,7 +1660,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "SetUserStatsForGameV1"
    (steam-request
-    "https://api.steampowered.com/ISteamUserStats/SetUserStatsForGame/v0001"
+    "https://partner.steam-api.com/ISteamUserStats/SetUserStatsForGame/v0001"
     ""
     :post
     [:key
@@ -1688,7 +1688,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetUserStatsForGameV1"
    (steam-request
-    "https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0001"
+    "https://partner.steam-api.com/ISteamUserStats/GetUserStatsForGame/v0001"
     ""
     :get
     [:key
@@ -1702,7 +1702,7 @@
   "ISteamSpecialSurvey"
   {"CheckUserStatusV1"
    (steam-request
-    "https://api.steampowered.com/ISteamSpecialSurvey/CheckUserStatus/v0001"
+    "https://partner.steam-api.com/ISteamSpecialSurvey/CheckUserStatus/v0001"
     ""
     :get
     [:key
@@ -1719,7 +1719,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "SetUserFinishedV1"
    (steam-request
-    "https://api.steampowered.com/ISteamSpecialSurvey/SetUserFinished/v0001"
+    "https://partner.steam-api.com/ISteamSpecialSurvey/SetUserFinished/v0001"
     ""
     :post
     [:key
@@ -1737,7 +1737,7 @@
   "IGameNotificationsService"
   {"CreateSessionV1"
    (steam-request
-    "https://api.steampowered.com/IGameNotificationsService/CreateSession/v0001"
+    "https://partner.steam-api.com/IGameNotificationsService/CreateSession/v0001"
     "Creates an async game session"
     :post
     [:key
@@ -1756,7 +1756,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "UpdateSessionV1"
    (steam-request
-    "https://api.steampowered.com/IGameNotificationsService/UpdateSession/v0001"
+    "https://partner.steam-api.com/IGameNotificationsService/UpdateSession/v0001"
     "Updates a game session"
     :post
     [:key
@@ -1775,7 +1775,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "EnumerateSessionsForAppV1"
    (steam-request
-    "https://api.steampowered.com/IGameNotificationsService/EnumerateSessionsForApp/v0001"
+    "https://partner.steam-api.com/IGameNotificationsService/EnumerateSessionsForApp/v0001"
     "Enumerates a user's sessions"
     :get
     [:key
@@ -1794,7 +1794,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetSessionDetailsForAppV1"
    (steam-request
-    "https://api.steampowered.com/IGameNotificationsService/GetSessionDetailsForApp/v0001"
+    "https://partner.steam-api.com/IGameNotificationsService/GetSessionDetailsForApp/v0001"
     "Get the details for a specific session"
     :get
     [:key
@@ -1809,7 +1809,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "RequestNotificationsV1"
    (steam-request
-    "https://api.steampowered.com/IGameNotificationsService/RequestNotifications/v0001"
+    "https://partner.steam-api.com/IGameNotificationsService/RequestNotifications/v0001"
     "Requests that a user receive game notifications for an app"
     :post
     [:key
@@ -1822,7 +1822,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "DeleteSessionV1"
    (steam-request
-    "https://api.steampowered.com/IGameNotificationsService/DeleteSession/v0001"
+    "https://partner.steam-api.com/IGameNotificationsService/DeleteSession/v0001"
     "Deletes an async game session"
     :post
     [:key
@@ -1837,7 +1837,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "DeleteSessionBatchV1"
    (steam-request
-    "https://api.steampowered.com/IGameNotificationsService/DeleteSessionBatch/v0001"
+    "https://partner.steam-api.com/IGameNotificationsService/DeleteSessionBatch/v0001"
     "Deletes a batch of async game sessions"
     :post
     [:key
@@ -1935,7 +1935,7 @@
   "ISteamUser"
   {"ResolveVanityURLV1"
    (steam-request
-    "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001"
+    "https://partner.steam-api.com/ISteamUser/ResolveVanityURL/v0001"
     ""
     :get
     [:key
@@ -1948,7 +1948,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GrantPackageV1"
    (steam-request
-    "https://api.steampowered.com/ISteamUser/GrantPackage/v0001"
+    "https://partner.steam-api.com/ISteamUser/GrantPackage/v0001"
     ""
     :post
     [:key
@@ -1967,7 +1967,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetAppPriceInfoV1"
    (steam-request
-    "https://api.steampowered.com/ISteamUser/GetAppPriceInfo/v0001"
+    "https://partner.steam-api.com/ISteamUser/GetAppPriceInfo/v0001"
     ""
     :get
     [:key
@@ -1980,7 +1980,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetPublisherAppOwnershipV1"
    (steam-request
-    "https://api.steampowered.com/ISteamUser/GetPublisherAppOwnership/v0001"
+    "https://partner.steam-api.com/ISteamUser/GetPublisherAppOwnership/v0001"
     ""
     :get
     [:key
@@ -1991,7 +1991,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetPublisherAppOwnershipV2"
    (steam-request
-    "https://api.steampowered.com/ISteamUser/GetPublisherAppOwnership/v0002"
+    "https://partner.steam-api.com/ISteamUser/GetPublisherAppOwnership/v0002"
     ""
     :get
     [:key
@@ -2002,7 +2002,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetUserGroupListV1"
    (steam-request
-    "https://api.steampowered.com/ISteamUser/GetUserGroupList/v0001"
+    "https://partner.steam-api.com/ISteamUser/GetUserGroupList/v0001"
     ""
     :get
     [:key
@@ -2013,7 +2013,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetPlayerSummariesV2"
    (steam-request
-    "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002"
+    "https://partner.steam-api.com/ISteamUser/GetPlayerSummaries/v0002"
     ""
     :get
     [:key
@@ -2024,7 +2024,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetPlayerBansV1"
    (steam-request
-    "https://api.steampowered.com/ISteamUser/GetPlayerBans/v0001"
+    "https://partner.steam-api.com/ISteamUser/GetPlayerBans/v0001"
     ""
     :get
     [:key
@@ -2035,7 +2035,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetFriendListV1"
    (steam-request
-    "https://api.steampowered.com/ISteamUser/GetFriendList/v0001"
+    "https://partner.steam-api.com/ISteamUser/GetFriendList/v0001"
     ""
     :get
     [:key
@@ -2048,7 +2048,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetPlayerSummariesV1"
    (steam-request
-    "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0001"
+    "https://partner.steam-api.com/ISteamUser/GetPlayerSummaries/v0001"
     ""
     :get
     [:key
@@ -2059,7 +2059,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "CheckAppOwnershipV1"
    (steam-request
-    "https://api.steampowered.com/ISteamUser/CheckAppOwnership/v0001"
+    "https://partner.steam-api.com/ISteamUser/CheckAppOwnership/v0001"
     ""
     :get
     [:key
@@ -2274,7 +2274,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetNewsForAppAuthedV1"
    (steam-request
-    "https://api.steampowered.com/ISteamNews/GetNewsForAppAuthed/v0001"
+    "https://partner.steam-api.com/ISteamNews/GetNewsForAppAuthed/v0001"
     ""
     :get
     [:key
@@ -2291,7 +2291,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetNewsForAppAuthedV2"
    (steam-request
-    "https://api.steampowered.com/ISteamNews/GetNewsForAppAuthed/v0002"
+    "https://partner.steam-api.com/ISteamNews/GetNewsForAppAuthed/v0002"
     ""
     :get
     [:key
@@ -2311,7 +2311,7 @@
   "ICheatReportingService"
   {"ReportPlayerCheatingV1"
    (steam-request
-    "https://api.steampowered.com/ICheatReportingService/ReportPlayerCheating/v0001"
+    "https://partner.steam-api.com/ICheatReportingService/ReportPlayerCheating/v0001"
     "Reports a player cheating"
     :post
     [:key
@@ -2342,7 +2342,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "RequestPlayerGameBanV1"
    (steam-request
-    "https://api.steampowered.com/ICheatReportingService/RequestPlayerGameBan/v0001"
+    "https://partner.steam-api.com/ICheatReportingService/RequestPlayerGameBan/v0001"
     "Requests a ban on a player"
     :post
     [:key
@@ -2365,7 +2365,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetCheatingReportsV1"
    (steam-request
-    "https://api.steampowered.com/ICheatReportingService/GetCheatingReports/v0001"
+    "https://partner.steam-api.com/ICheatReportingService/GetCheatingReports/v0001"
     "Get a list of cheating reports submitted for this app"
     :get
     [:key
@@ -2388,7 +2388,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "RequestVacStatusForUserV1"
    (steam-request
-    "https://api.steampowered.com/ICheatReportingService/RequestVacStatusForUser/v0001"
+    "https://partner.steam-api.com/ICheatReportingService/RequestVacStatusForUser/v0001"
     "Checks a user's VAC session status. If verification fails, then do not let the user matchmake into a secure game."
     :post
     [:key
@@ -2403,7 +2403,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "StartSecureMultiplayerSessionV1"
    (steam-request
-    "https://api.steampowered.com/ICheatReportingService/StartSecureMultiplayerSession/v0001"
+    "https://partner.steam-api.com/ICheatReportingService/StartSecureMultiplayerSession/v0001"
     "Tell the VAC servers that a secure multiplayer session has started"
     :post
     [:key
@@ -2416,7 +2416,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "EndSecureMultiplayerSessionV1"
    (steam-request
-    "https://api.steampowered.com/ICheatReportingService/EndSecureMultiplayerSession/v0001"
+    "https://partner.steam-api.com/ICheatReportingService/EndSecureMultiplayerSession/v0001"
     "Tell the VAC servers that a secure multiplayer session has ended."
     :post
     [:key
@@ -2431,7 +2431,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "ReportCheatDataV1"
    (steam-request
-    "https://api.steampowered.com/ICheatReportingService/ReportCheatData/v0001"
+    "https://partner.steam-api.com/ICheatReportingService/ReportCheatData/v0001"
     "Reports cheat data. Only use on test account that is running the game but not in a multiplayer session."
     :post
     [:key
@@ -2641,7 +2641,7 @@
   "IEconMarketService"
   {"GetMarketEligibilityV1"
    (steam-request
-    "https://api.steampowered.com/IEconMarketService/GetMarketEligibility/v0001"
+    "https://partner.steam-api.com/IEconMarketService/GetMarketEligibility/v0001"
     "Checks whether or not an account is allowed to use the market"
     :get
     [:key
@@ -2652,7 +2652,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetAssetIDV1"
    (steam-request
-    "https://api.steampowered.com/IEconMarketService/GetAssetID/v0001"
+    "https://partner.steam-api.com/IEconMarketService/GetAssetID/v0001"
     "Returns the asset ID of the item sold in a listing"
     :get
     [:key
@@ -2665,7 +2665,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetPopularV1"
    (steam-request
-    "https://api.steampowered.com/IEconMarketService/GetPopular/v0001"
+    "https://partner.steam-api.com/IEconMarketService/GetPopular/v0001"
     "Gets the most popular items"
     :get
     [:key
@@ -2854,7 +2854,7 @@
   "ITestExternalPrivilegeService"
   {"CallPublisherKeyV1"
    (steam-request
-    "https://api.steampowered.com/ITestExternalPrivilegeService/CallPublisherKey/v0001"
+    "https://partner.steam-api.com/ITestExternalPrivilegeService/CallPublisherKey/v0001"
     ""
     :post
     [:key
@@ -2863,7 +2863,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "CallPublisherKeyOwnsAppV1"
    (steam-request
-    "https://api.steampowered.com/ITestExternalPrivilegeService/CallPublisherKeyOwnsApp/v0001"
+    "https://partner.steam-api.com/ITestExternalPrivilegeService/CallPublisherKeyOwnsApp/v0001"
     ""
     :post
     [:key
@@ -2898,7 +2898,7 @@
   "ISteamCDN"
   {"SetClientFiltersV1"
    (steam-request
-    "https://api.steampowered.com/ISteamCDN/SetClientFilters/v0001"
+    "https://partner.steam-api.com/ISteamCDN/SetClientFilters/v0001"
     ""
     :post
     [:key
@@ -3032,7 +3032,7 @@
      "(string, optional) The desired response format: json, xml, or vdf. Default: json"]),
    "GetSupportedAPIListV1"
    (steam-request
-    "https://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001"
+    "https://partner.steam-api.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001"
     ""
     :get
     [:key
@@ -3568,7 +3568,7 @@
   "ISteamGameServerStats"
   {"GetGameServerPlayerStatsForGameV1"
    (steam-request
-    "https://api.steampowered.com/ISteamGameServerStats/GetGameServerPlayerStatsForGame/v0001"
+    "https://partner.steam-api.com/ISteamGameServerStats/GetGameServerPlayerStatsForGame/v0001"
     ""
     :get
     [:key

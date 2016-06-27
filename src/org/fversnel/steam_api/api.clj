@@ -74,4 +74,4 @@
                {:url url
                 :description description
                 :http-method http-method
-                :parameters parameters-spec})))
+                :parameters (apply array-map parameters-spec)})))

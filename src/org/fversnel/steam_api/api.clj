@@ -15,7 +15,7 @@
    => {\"test[0]\" 42 \"test[1]\" 43 \"test[2]\" 44}"
   [param-name values]
   (if-not (nil? values)
-    (->> (or values [])
+    (->> values
          (map-indexed (fn [index value] [(str param-name "[" index "]") value]))
          (into {}))))
 

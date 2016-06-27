@@ -18,7 +18,7 @@
   (->> values
        (map-indexed
          (fn [index value] [(str array-name "[" index "]") value]))
-       (flatten)
+       flatten
        (apply hash-map)))
 
 (defn to-parameter-definition
@@ -32,7 +32,7 @@
   "Prepares the given parameters for the Steam request.
    Converts arrays into indexed arrays/comma-separated string when necessary"
   (letfn [(to-query-param
-            [{:keys [type name] :as parameter-definition}]
+            [{:keys [type name]}]
             (let [value (get parameters name)]
               (case type
                 :normal
@@ -44,11 +44,10 @@
                 :indexed-array
                 (to-indexed-param-array name value))))]
     (->> parameters-spec
-         (vec)
          (map to-parameter-definition)
          (filter #(contains? parameters (:name %)))
          (map to-query-param)
-         (apply (partial merge {})))))
+         (into {}))))
 
 (defmacro steam-request
   "Parses a Steam request structure and returns a function that takes the required parameters

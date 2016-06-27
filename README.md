@@ -60,14 +60,13 @@ Each API call also has metadata associated with it that tells you what it is:
 ```
 
 Steam has two distinct methods for putting an array of values in a request parameter.
-
 The first one is as comma-separated value:
 
 ```clojure
 {"something" "42,43,44"}
 ```
 
-But sometimes they require the following structure:
+But sometimes it requires the following structure:
 
 ```clojure
 {"something[0]" 42 "something[1]" 43 "something[2]" 44}
@@ -75,7 +74,7 @@ But sometimes they require the following structure:
 
 Either way you can just hand over your collection `[42 43 44]` to the library and the library
 will make sure that your collection will be converted according to the specification
-of that specific parameter.
+of that parameter.
 
 ## Re-generating the API
 

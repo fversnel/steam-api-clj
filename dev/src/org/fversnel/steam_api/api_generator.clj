@@ -1,8 +1,16 @@
 (ns org.fversnel.steam-api.api-generator
-  (:require [org.fversnel.steam-api.util :as util]
-            [clojure.java.io :as io]
+  (:require [clojure.java.io :as io]
             [clojure.pprint :refer [pprint]]
             [cheshire.core :as json-parser]))
+
+(defn make-url
+  "Creates a url from a collection of strings, interposes a '/' character between each string.
+   For example: (url \"something\" \"anything\")
+                => \"something/anything\""
+  [& strings]
+  (->> strings
+       (interpose "/")
+       (apply str)))
 
 (def steam-api-list-file (-> "steam-api-list.json" io/resource io/file))
 
@@ -43,7 +51,7 @@
                                              "GET" :get)
                                parameter-names (set (map first parameters))
                                api-url (if (contains? parameter-names :key) secured-url unsecured-url)
-                               url (util/url api-url interface-name method-name (format "v%04d" version))]]
+                               url (make-url api-url interface-name method-name (format "v%04d" version))]]
                      {(str method-name "V" version)
                       (list 'steam-request url description http-method
                             (->> parameters (apply concat) vec))}))})))

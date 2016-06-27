@@ -1,10 +1,10 @@
 (ns org.fversnel.steam-api.api)
 
 (def data-format-headers
-  {"json" "application/json"
-   "xml"  "text/xml"
-   "vdf"  "text/vdf"
-   "csv"  "text/csv"})
+  {:json "application/json"
+   :xml  "text/xml"
+   :vdf  "text/vdf"
+   :csv  "text/csv"})
 
 (defn to-indexed-array
   "Creates an indexed array of parameter value pairs to be
@@ -22,8 +22,8 @@
 (defn to-normal-value
   [param-name value]
   (cond
-    (coll? value) [param-name (clojure.string/join "," value)]
     (nil? value)  nil
+    (coll? value) [param-name (clojure.string/join "," value)]
     :else         [param-name value]))
 
 (defmacro steam-request
@@ -55,11 +55,10 @@
                    ~http-params-type (into {} ~(->> param-symbols
                                                     (map conformer)
                                                     vec))
-                   :headers (merge
-                              {"Content-Type" "application/x-www-form-urlencoded; charset=utf-8"}
-                              (if (nil? ~'format)
-                                {"Accept" ~(get data-format-headers "json")}
-                                {"Accept" (get data-format-headers ~'format)}))})
+                   :headers {"Content-Type" "application/x-www-form-urlencoded;charset=utf-8"
+                             "Accept" (if (nil? ~'format)
+                                        ~(:json data-format-headers)
+                                        ((keyword ~'format) data-format-headers))}})
                {:url url
                 :description description
                 :http-method http-method

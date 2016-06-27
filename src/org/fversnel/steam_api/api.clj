@@ -33,8 +33,9 @@
   (let [param-specs (apply hash-map parameters-spec)
         conformer (fn [param-symbol]
                     (let [param-key (keyword param-symbol)
-                          data-type (if (coll? description)
-                                      (first description)
+                          param-description (param-key param-specs)
+                          data-type (if (coll? param-description)
+                                      (first param-description)
                                       :normal)
                           conform (case data-type
                                     :normal `to-normal-value
@@ -48,7 +49,7 @@
                         param-symbols)
         http-params-type (if (= http-method :get) :query-params :form-params)]
     (with-meta `(fn
-                  [{:keys ~param-symbols :as ~'params}]
+                  ~[{:keys param-symbols :as 'params}]
                   {:method  ~http-method
                    :url     ~url
                    ~http-params-type (into {} ~(->> param-symbols

@@ -39,7 +39,7 @@ And simply create the desired request by specifying the Steam interface, method 
     :url "https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002",
     :headers {"ContentType" "application/x-www-form-urlencoded; charset=utf-8",
               "Accept" "application/json"},
-    :query-params {"format" "json", "maxlength" 50, "appid" 1234, "count" 5}}
+    :query-params {"format" "json", "maxlength" 50, "appid" 329190, "count" 5}}
 ```
 
 You can lookup a specific method very easily in the requests map in the [core](./src/steam_api_clj/core.clj) file.

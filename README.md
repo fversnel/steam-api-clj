@@ -19,7 +19,7 @@ steam-api-clj is available as a Maven artifact from Clojars.
 With Leiningen/Boot:
 
 ```clojure
-[org.fversnel/steam-api "0.5.0"]
+[org.fversnel/steam-api "0.6.0"]
 ```
 
 ## Usage
@@ -60,6 +60,7 @@ Each API call also has metadata associated with it that tells you what it is:
 ```
 
 Steam has two distinct methods for putting an array of values in a request parameter.
+
 The first one is as comma-separated value:
 
 ```clojure

@@ -63,7 +63,10 @@
 
                   {:method ~http-method
                    :url    ~url
-                   :params (make-request-params ~parameters-spec# ~'parameters)
+                   ~(if (= http-method :get)
+                      :query-params
+                      :form-params)
+                           (make-request-params ~parameters-spec# ~'parameters)
                    :headers (merge
                               {"Content-Type" "application/x-www-form-urlencoded; charset=utf-8"}
                               (if (contains? ~'parameters :format)

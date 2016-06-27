@@ -19,7 +19,7 @@ steam-api-clj is available as a Maven artifact from Clojars.
 With Leiningen/Boot:
 
 ```clojure
-[org.fversnel/steam-api "0.4.0"]
+[org.fversnel/steam-api "0.5.0"]
 ```
 
 ## Usage
@@ -34,7 +34,7 @@ And simply create the desired request by specifying the Steam interface, method 
 
 ```clojure
 (steam-api/request "ISteamNews" "GetNewsForAppV2"
-                   {:appid 1234 :maxlength 50 :count 5 :format "json"})
+                   {:appid 329190 :maxlength 50 :count 5 :format "json"})
 => {:method :get,
     :url "https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002",
     :headers {"ContentType" "application/x-www-form-urlencoded; charset=utf-8",

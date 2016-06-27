@@ -30,7 +30,7 @@
   "Parses a Steam request structure and returns a function that takes the required parameters
    of the request as an argument and returns a http request map"
   [url description http-method parameters-spec]
-  (let [param-specs# (apply hash-map parameters-spec)
+  (let [param-specs (apply hash-map parameters-spec)
         conformer (fn [param-symbol]
                     (let [param-key (keyword param-symbol)
                           data-type (if (coll? description)
@@ -40,24 +40,25 @@
                                     :normal `to-normal-value
                                     :indexed-array `to-indexed-array)]
                       `(~conform ~(name param-key) ~param-symbol)))
-        param-names# (keys param-specs#)
-        param-symbols# (map (comp symbol name) param-names#)
+        param-symbols (->> (keys param-specs)
+                           (map (comp symbol name))
+                           vec)
+        param-symbols (if-not (some #(= % 'format) param-symbols)
+                        (conj param-symbols 'format)
+                        param-symbols)
         http-params-type (if (= http-method :get) :query-params :form-params)]
     (with-meta `(fn
-                  ~(if (not-empty param-names#)
-                     [{:keys (vec param-symbols#) :as 'params}]
-                     [])
-
+                  [{:keys ~param-symbols :as ~'params}]
                   {:method  ~http-method
                    :url     ~url
-                   ~http-params-type (into {} ~(->> param-symbols#
+                   ~http-params-type (into {} ~(->> param-symbols
                                                     (map conformer)
                                                     vec))
                    :headers (merge
                               {"Content-Type" "application/x-www-form-urlencoded; charset=utf-8"}
-                              (if (contains? ~'params :format)
-                                {"Accept" (get data-format-headers ~'format)}
-                                {"Accept" ~(get data-format-headers "json")}))})
+                              (if (nil? ~'format)
+                                {"Accept" ~(get data-format-headers "json")}
+                                {"Accept" (get data-format-headers ~'format)}))})
                {:url url
                 :description description
                 :http-method http-method

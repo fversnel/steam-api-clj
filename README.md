@@ -4,7 +4,7 @@ Library that allows you to easily create Steam Web API calls from Clojure.
 
 ## Features
 
-An idiomatic and complete Clojure API for the Steam Web API.
+An idiomatic and complete Clojure API for the Steam Web Interface.
 
 - The API is exposed as one big map:
   - Each API call has metadata associated with it that tells you what it is.

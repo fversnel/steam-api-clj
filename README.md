@@ -89,6 +89,6 @@ This will generate a new core.clj file with the updated API.
 
 ## License
 
-Copyright © 2015 Frank Versnel
+Copyright © 2015-2016 Frank Versnel
 
 Distributed under the Eclipse Public License version 1.0

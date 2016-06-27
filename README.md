@@ -50,13 +50,13 @@ Each API call also has metadata associated with it that tells you what it is:
 => {:url "https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002",
     :description "",
     :http-method :get,
-    :parameters [:appid "(uint32) AppID to retrieve news for"
+    :parameters {:appid "(uint32) AppID to retrieve news for"
                  :maxlength "(uint32, optional) Maximum length for the content to return, if this is 0 the full 
                              content is returned, if it's less then a blurb is generated to fit."
                  :enddate "(uint32, optional) Retrieve posts earlier than this date (unix epoch timestamp)"
                  :count "(uint32, optional) # of posts to retrieve (default 20)"
                  :feeds "(string, optional) Comma-seperated list of feed names to return news for"
-                 :format "(string, optional) The desired response format: json, xml, or vdf. Default: json"]}
+                 :format "(string, optional) The desired response format: json, xml, or vdf. Default: json"}}
 ```
 
 Steam has two distinct methods for putting an array of values in a request parameter.

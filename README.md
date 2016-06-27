@@ -6,11 +6,11 @@ Library that allows you to easily create Steam Web API calls from Clojure.
 
 An idiomatic and complete Clojure API for the Steam Web API.
 
-- The API is exposed as one big data structure.
+- The API is exposed as one big map:
   - Each API call has metadata associated with it that tells you what it is.
-  - Use the power of Clojure to explore the API.
-- Not bound to any specific http library, I leave that up to you.
-- API can be generated from Steam's own [API specification](http://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001/?format=json)
+  - You can use the power of Clojure to explore and use the API.
+- It is **not** bound to any specific http library, I leave that up to you.
+- The API can be generated from Steam's own [API specification](http://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001/?format=json)
 
 ## Installation
 

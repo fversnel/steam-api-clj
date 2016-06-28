@@ -11,7 +11,7 @@
    used in the parameter list of some of the Steam web requests.
 
    Example:
-   (to-indexed-param-array \"test\" [42 43 44])
+   (to-indexed-array \"test\" [42 43 44])
    => {\"test[0]\" 42 \"test[1]\" 43 \"test[2]\" 44}"
   [param-name values]
   (if-not (nil? values)
@@ -27,8 +27,9 @@
     :else         [param-name value]))
 
 (defmacro steam-request
-  "Parses a Steam request structure and returns a function that takes the required parameters
-   of the request as an argument and returns a http request map"
+  "Parses a Steam request structure and returns a function that takes
+   the required parameters of the request as an argument and
+   returns a http request map."
   [url description http-method parameters-spec]
   (let [param-specs (apply hash-map parameters-spec)
         conformer (fn [param-symbol]
@@ -52,9 +53,7 @@
                   ~[{:keys param-symbols :as 'params}]
                   {:method  ~http-method
                    :url     ~url
-                   ~http-params-type (into {} ~(->> param-symbols
-                                                    (map conformer)
-                                                    vec))
+                   ~http-params-type (into {} [~@(map conformer param-symbols)])
                    :headers {"Content-Type" "application/x-www-form-urlencoded;charset=utf-8"
                              "Accept" (if (nil? ~'format)
                                         ~(:json data-format-headers)

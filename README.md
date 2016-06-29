@@ -77,6 +77,34 @@ Either way you can just hand over your collection `[42 43 44]` to the library an
 will make sure that your collection will be converted according to the specification
 of that parameter.
 
+### Using your Steam API key
+
+Using your steam API key is as simple as passing it to the request:
+
+```clojure
+(steam-api/request "ISteamUserAuth" "AuthenticateUserTicketV1"
+                   {:appid 329190 :key "mykey" :ticket "some_ticket" :format "json"})
+```
+
+### Using default parameters
+
+If you find it annoying to keep passing your `key`, `appid`, and `format` parameters
+so you can write a function that does that for you:
+
+```clojure
+(def params
+  #(merge {:appid 329190 :key "mykey" :format "json"}
+     (apply hash-map %)))
+```
+
+A request call then becomes:
+```clojure
+(steam-api/request "ISteamUserAuth" "AuthenticateUserTicketV1"
+                   (params :ticket "some_ticket"))
+```
+**Don't worry about providing parameters that are not part of the request
+specification as `steam-api-clj` will filter those out for you.**
+
 ## Re-generating the API
 
 Place the updated steam-api-list.json in the resource folder and do:

@@ -89,14 +89,12 @@ Using your steam API key is as simple as passing it to the request:
 ### Using default parameters
 
 If you find it annoying to keep passing your `key`, `appid`, and `format` parameters
-so you can write a function that does that for you:
-
+you can write a function that does that for you:
 ```clojure
 (def params
   #(merge {:appid 329190 :key "mykey" :format "json"}
      (apply hash-map %)))
 ```
-
 A request call then becomes:
 ```clojure
 (steam-api/request "ISteamUserAuth" "AuthenticateUserTicketV1"

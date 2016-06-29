@@ -70,8 +70,12 @@
 
                      ~'(declare requests)
 
-                     ~'(defn request [interface method parameters]
-                         ((get-in requests [interface method]) parameters))
+                     ~'(defn request [interface method params]
+                         ((get-in requests [interface method]) params))
+
+                     ~'(defn request-with-defaults [default-params]
+                         (fn [interface method params]
+                           (request interface method (merge default-params params))))
 
                      ~'(defn list-api-calls []
                          (vec (for [[interface methods] (vec requests)]

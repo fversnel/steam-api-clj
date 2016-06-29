@@ -19,7 +19,7 @@ steam-api-clj is available as a Maven artifact from Clojars.
 With Leiningen/Boot:
 
 ```clojure
-[org.fversnel/steam-api "0.7.1"]
+[org.fversnel/steam-api "0.8.0"]
 ```
 
 ## Usage
@@ -89,16 +89,17 @@ Using your steam API key is as simple as passing it to the request:
 ### Using default parameters
 
 If you find it annoying to keep passing your `key`, `appid`, and `format` parameters
-you can write a function that does that for you:
+you can use `request-with-defaults`:
 ```clojure
-(def params
-  #(merge {:appid 329190 :key "mykey" :format "json"}
-     (apply hash-map %)))
+(def request
+  (steam-api/request-with-defaults {:appid 329190
+                                    :key "mykey"
+                                    :format "json"}))
 ```
 A request call then becomes:
 ```clojure
-(steam-api/request "ISteamUserAuth" "AuthenticateUserTicketV1"
-                   (params :ticket "some_ticket"))
+(request "ISteamUserAuth" "AuthenticateUserTicketV1"
+         {:ticket "some_ticket"})
 ```
 **Don't worry about providing parameters that are not part of the request
 specification as `steam-api-clj` will filter those out for you.**

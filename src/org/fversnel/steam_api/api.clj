@@ -44,11 +44,12 @@
                       `(~conform ~(name param-key) ~param-symbol)))
         param-symbols (->> (keys param-specs)
                            (map (comp symbol name))
+                           (concat ['format])
+                           distinct
                            vec)
-        param-symbols (if-not (some #(= % 'format) param-symbols)
-                        (conj param-symbols 'format)
-                        param-symbols)
-        http-params-type (if (= http-method :get) :query-params :form-params)]
+        http-params-type (case http-method
+                           :get :query-params
+                           :post :form-params)]
     (with-meta `(fn
                   ~[{:keys param-symbols :as 'params}]
                   {:method  ~http-method
